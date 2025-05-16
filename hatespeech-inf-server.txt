@@ -1,0 +1,11 @@
+Path:  /scratch/rahul.garg/Inference_toxicity
+
+12:07
+Check if the conda environment is myenv
+12:11
+As mentioned earlier in one of the above threads,
+Then run the file named inference.py
+On line number 373 of this file the inference function is called where there are 2 arguments
+An image path and the overlying caption
+If caption is not required then pass an empty string
+The relative path of the image with respect to the pwd must be passed

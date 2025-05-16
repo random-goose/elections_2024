@@ -1,0 +1,209 @@
+State,Party,Vote_Difference
+Andhra Pradesh,BJP,3504869
+Andhra Pradesh,BSP,142532
+Andhra Pradesh,CPI,-17899
+Andhra Pradesh,CPI(M),85363
+Andhra Pradesh,INC,505323
+Andhra Pradesh,SP,-1037
+Andhra Pradesh,TDP,262209
+Andhra Pradesh,YSRCP,-2218519
+Arunachal Pradesh,BJP,-28681
+Arunachal Pradesh,INC,84951
+Arunachal Pradesh,JD(S),-59878
+Assam,AAP,170912
+Assam,AGP,1298707
+Assam,AIUDF,-341477
+Assam,BJP,1497554
+Assam,CPI,-11596
+Assam,CPI(M),55201
+Assam,INC,1257156
+Assam,NCP,-11010
+Assam,SP,-2383
+Assam,TMC,4989
+Bihar,AAP,-26147
+Bihar,BJP,-235405
+Bihar,BSP,159163
+Bihar,CPI,287601
+Bihar,CPI(M),349949
+Bihar,INC,855828
+Bihar,JD(U),-863056
+Bihar,JMM,-30853
+Bihar,NCP,-38991
+Bihar,RJD,3711184
+Bihar,SP,-2881
+Bihar,Shiv Sena,-64462
+Bihar,TMC,-5483
+Chandigarh,AAP,-13781
+Chandigarh,BJP,-17035
+Chandigarh,BSP,-688
+Chandigarh,INC,32439
+Chhattisgarh,BJP,1027619
+Chhattisgarh,BSP,-137423
+Chhattisgarh,CPI,-2508
+Chhattisgarh,INC,613818
+Chhattisgarh,Shiv Sena,-50719
+Delhi,AAP,586428
+Delhi,BJP,-47617
+Delhi,BSP,-31362
+Delhi,INC,-265422
+Goa,AAP,-25647
+Goa,BJP,24977
+Goa,BSP,3206
+Goa,INC,-7011
+Goa,Shiv Sena,-1763
+Gujarat,AAP,784055
+Gujarat,BJP,-101534
+Gujarat,BSP,-27804
+Gujarat,CPI,-5735
+Gujarat,INC,-229230
+Gujarat,NCP,-27305
+Gujarat,SP,1609
+Haryana,AAP,467656
+Haryana,BJP,-1338182
+Haryana,BSP,-294762
+Haryana,CPI,-7563
+Haryana,CPI(M),-9150
+Haryana,INC,2098832
+Haryana,INLD,-13283
+Haryana,JJP,-506143
+Haryana,Shiv Sena,-6761
+Himachal Pradesh,BJP,-364651
+Himachal Pradesh,BSP,-11376
+Himachal Pradesh,CPI(M),-14838
+Himachal Pradesh,INC,645060
+Jharkhand,BJP,57685
+Jharkhand,BSP,-7318
+Jharkhand,CPI,-17954
+Jharkhand,CPI(M),1705
+Jharkhand,INC,980807
+Jharkhand,JMM,794921
+Jharkhand,RJD,120077
+Jharkhand,SP,-1453
+Jharkhand,TMC,-72070
+Karnataka,BJP,-174193
+Karnataka,BSP,-284294
+Karnataka,CPI,-17227
+Karnataka,CPI(M),-14091
+Karnataka,INC,6403653
+Karnataka,JD(S),-1223528
+Karnataka,Shiv Sena,-14350
+Kerala,BJP,695440
+Kerala,BSP,-395
+Kerala,CPI,-6915
+Kerala,CPI(M),-105476
+Kerala,INC,-592639
+Lakshadweep,BJP,-125
+Lakshadweep,CPI,-143
+Lakshadweep,CPI(M),-420
+Lakshadweep,INC,3698
+Lakshadweep,JD(U),-1342
+Lakshadweep,NCP,-22650
+Madhya Pradesh,BJP,1083964
+Madhya Pradesh,BSP,366355
+Madhya Pradesh,CPI,-36845
+Madhya Pradesh,CPI(M),-10453
+Madhya Pradesh,INC,-425002
+Madhya Pradesh,JD(U),-6320
+Madhya Pradesh,SP,-82662
+Madhya Pradesh,Shiv Sena,-9900
+Maharashtra,BJP,54438
+Maharashtra,BSP,-42522
+Maharashtra,CPI,-30746
+Maharashtra,CPI(M),-94926
+Maharashtra,INC,884698
+Maharashtra,NCP,-6328385
+Maharashtra,SP,-12306
+Maharashtra,Shiv Sena,-5187617
+Manipur,BJP,-289161
+Manipur,CPI,-133813
+Manipur,INC,360584
+Manipur,JD(U),-2987
+Manipur,NCP,-2552
+Meghalaya,BJP,-108390
+Meghalaya,INC,-77027
+Meghalaya,TMC,48709
+Meghalaya,UDP,-222693
+Mizoram,BJP,4826
+Mizoram,INC,98595
+Mizoram,MNF,-84022
+Nagaland,INC,-82215
+Nagaland,NDPP,-149543
+Orissa,AAP,-6614
+Orissa,BJD,-758662
+Orissa,BJP,2281016
+Orissa,BSP,-78156
+Orissa,CPI,-51848
+Orissa,CPI(M),-18878
+Orissa,INC,-137408
+Orissa,JMM,-153
+Orissa,SP,2030
+Orissa,TMC,-9571
+Pondicherry,AIADMK,25165
+Pondicherry,AINRC,-247956
+Pondicherry,BJP,289489
+Pondicherry,BSP,-1149
+Pondicherry,INC,-18976
+Pondicherry,MNM,-38068
+Punjab,AAP,2505791
+Punjab,BJP,1185393
+Punjab,BSP,-142648
+Punjab,CPI,-21080
+Punjab,CPI(M),-4707
+Punjab,INC,-1963410
+Punjab,JD(U),-2726
+Punjab,NCP,-5689
+Punjab,SAD,-1964256
+Punjab,Shiv Sena,-13284
+Rajasthan,BJP,-3452580
+Rajasthan,BSP,-112469
+Rajasthan,CPI,-46619
+Rajasthan,CPI(M),593751
+Rajasthan,INC,1017879
+Rajasthan,Shiv Sena,-16561
+Sikkim,BJP,2463
+Sikkim,INC,-1749
+Sikkim,SDF,-77318
+Sikkim,SKM,-2526
+Tamil Nadu,AIADMK,1095988
+Tamil Nadu,BJP,3366369
+Tamil Nadu,BSP,-23964
+Tamil Nadu,CPI,-93834
+Tamil Nadu,CPI(M),82247
+Tamil Nadu,DMDK,199026
+Tamil Nadu,DMK,11754710
+Tamil Nadu,INC,-745940
+Tamil Nadu,MDMK,542213
+Tamil Nadu,MNM,-1575620
+Telangana,BJP,3756819
+Telangana,BSP,35135
+Telangana,CPI,-73872
+Telangana,CPI(M),-53461
+Telangana,INC,2746981
+Telangana,Shiv Sena,-2624
+Telangana,TRS,-7696848
+Tripura,BJP,603130
+Tripura,CPI(M),-82161
+Tripura,INC,-275916
+Tripura,TMC,-8613
+Uttar Pradesh,AAP,-8643
+Uttar Pradesh,BJP,-6493210
+Uttar Pradesh,BSP,-8405428
+Uttar Pradesh,CPI,-35402
+Uttar Pradesh,INC,2858258
+Uttar Pradesh,JD(U),-9335
+Uttar Pradesh,NCP,-4570
+Uttar Pradesh,SP,14001282
+Uttar Pradesh,Shiv Sena,-29136
+Uttar Pradesh,TMC,415910
+Uttarakhand,BJP,-204425
+Uttarakhand,BSP,-129872
+Uttarakhand,CPI(M),-6626
+Uttarakhand,INC,60944
+West Bengal,BJP,402738
+West Bengal,BSP,8082
+West Bengal,CPI,-95002
+West Bengal,CPI(M),-161302
+West Bengal,INC,-383430
+West Bengal,JMM,-12936
+West Bengal,Shiv Sena,-52847
+West Bengal,TMC,2917148
