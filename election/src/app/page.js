@@ -141,10 +141,14 @@ export default function Home() {
   const [cy, setCy] = useState(null);
   const [graphData, setGraphData] = useState(null);
   const [graphdata, setgraphdata] = useState({ nodes: [], edges: [] });
-  const [coomunityoption, setcoomunityoption] = useState('');
+  const [coomunityoption, setCommunityOption] = useState("");
   const [Comm_keywords, setComm_keywords] = useState([{}]);
   const [checkbox_status, setcheckbox_status] = useState([{}])
   const [Comm_selected, setComm_selected] = useState({});
+  const [kValue, setKValue] = useState(null);
+  const [randomSeed, setRandomSeed] = useState(null);
+  const [samplingStrategy, setSamplingStrategy] = useState('');
+  const [imageUrls, setImageUrls] = useState([]);
   // const url="http://localhost:3500/";
   console.log("process.env.REACT_EXPRESS_API_URL", process.env.NEXT_PUBLIC_EXPRESS_API_URL)
   const url = process.env.NEXT_PUBLIC_EXPRESS_API_URL
@@ -807,24 +811,67 @@ export default function Home() {
     return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/')
   }
 
+    const downloadImages = (urls) => {
+    urls.forEach(async (url, index) => {
+      try {
+        // Fetch the image as a blob
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch image: ${url}`);
+        }
+        const blob = await response.blob();
+  
+        // Create a temporary object URL for the blob
+        const objectUrl = URL.createObjectURL(blob);
+  
+        // Create a link element for downloading
+        const link = document.createElement('a');
+        link.href = objectUrl;
+  
+        // Extract file name from URL or create a default name
+        const fileName = url.split('/').pop() || `graph_${index + 1}.png`;
+        link.download = fileName;
+  
+        // Trigger download
+        document.body.appendChild(link);
+        link.click();
+  
+        // Clean up
+        document.body.removeChild(link);
+        URL.revokeObjectURL(objectUrl); // Revoke the object URL to free memory
+      } catch (error) {
+        console.error(`Error downloading image: ${url}`, error);
+      }
+    });
+  };
+
   console.log(convertDate('Mon Nov 19 13:29:40 2012')) // => "19/11/2012"
   const handleSubmit = async () => {
     let selectedValues = []
 
     if (coomunityoption == 'Quora') {
       selectedValues = selectedOption.map(option => option.value.toLowerCase());
-
+      console.log(selectedValues);
+      // Fetch and render the graph
+      console.log()
+      await fetchGraphData(selectedValues);
     }
     else {
-      selectedValues = selectedOption.map(option => option.value);
+      if (kValue && randomSeed && samplingStrategy) {
+        // const img1 = `/images/graph_${kValue}_${randomSeed}_${samplingStrategy}.png`;
+        // const img2 = `/images/graph2_${kValue}_${randomSeed}_${samplingStrategy}.png`;
+
+        const img1 = `http://localhost:3500/comgraphs/Gender_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
+        const img2 = `http://localhost:3500/comgraphs/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
+        setImageUrls([img1, img2]);
+      } else {
+        alert('Please select all parameters (K-Value, Random Seed, Sampling Strategy)');
+      }
     }
-    console.log(selectedValues);
-    // Fetch and render the graph
-    console.log()
-    await fetchGraphData(selectedValues);
+
   };
   const getNodeData = (node, key) => {
-    const data = node.data;
+    const data = node.data; 
 
     // If there's only one <data> tag, xml2js gives an object not array
     const dataArray = Array.isArray(data) ? data : [data];
@@ -1100,7 +1147,7 @@ export default function Home() {
     setcheckbox_status(checkbox_status_a)
     setComm_keywords(Comm_keywords_a)
     setComm_selected(Comm_keywords_a)
-    setcoomunityoption(m)
+    setCommunityOption(m)
     setSelectedOption([])
   }
   const renderGraph = (data) => {
@@ -1423,133 +1470,167 @@ export default function Home() {
         <Frameg />
 
       </Tab>
-
+      {/* #########################################################################################
+                                Community Detection
+############################################################################################# */}
       <Tab eventKey="Com_Dot" title="Community Detection">
-
-        <Container> <Row><Col>
-          <Row >
-            <h4 className="text-center mb-4">Community Detection Model</h4>
-            {/* CommunityDetectionDate, setCommunityDetectionDate */}
-            {/* <ReactDatePicker/> */}
-          </Row>
-          {/* <Form>
-      <Form.Check // prettier-ignore
-        type="switch"
-        id="custom-switch"
-        label="Check this switch"
-      /> </Form> */}
-          <div key={`reverse-radio`} className="mb-3">
-            <Form.Check
-              inline
-              reverse
-              label="Quora"
-              name="group1"
-              type='radio'
-              id={`reverse-radio-1`}
-              onClick={(e) => {
-                changecomm(checkbox_status_quora, Comm_keywords_quora, "Quora")
-
-
-              }}
-
-            />
-            <Form.Check
-              inline
-              reverse
-              label="Sharechat"
-              name="group1"
-              type='radio'
-              id={`reverse-radio-2`}
-              onClick={(e) => {
-                changecomm(checkbox_status_sharechat, Comm_keywords_sharechat, "Sharechart")
-
-
-              }}
-            />
-            {coomunityoption == 'Quora' && <ReactDatePicker selected={CommunityDetectionDate} onChange={(date) => setCommunityDetectionDate(date)} />}
-
-          </div>
-          <div>
-            <Select
-              onChange={setSelectedOption}
-              value={selectedOption}
-              isMulti
-              name="colors"
-              options={Comm_keywords}
-              className="basic-multi-select"
-              classNamePrefix="select"
-              isSearchable={true}
-              noOptionsMessage={() => "Not Found"}
-              required
-            /><br />
-            <Button variant="primary" onClick={handleSubmit}>Submit</Button>
-
-          </div>
-
-
-        </Col>
-
-
-          <Col> <Container>
-            <Row className="justify-content-center">
-              <h4 className="text-center mb-4">Sample Graph</h4>
-            </Row>
-            <Row style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-              <Figure.Image
-                style={{ width: '150%', maxWidth: '100%', height: '300px', objectFit: 'contain' }}
-                alt="Banner Image"
-                src={url + "static/CommunityDetection.png"}
-              />
-            </Row>
-          </Container></Col>
-
-        </Row>
-          <Row>
-            <br /><br />
-
-          </Row>
-        </Container>
-        {/* <Container>
-    {ComDecs &&
-      <div id="network-graph-container" class="network-graph-container"></div>}</Container> */}
-
-
         <Container>
           <Row>
-
             <Col>
-              {/* <div class="modal" id="nodeModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle">Node Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      </div>
-    </div>
-  </div>
-</div> */}
-              <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+              <Row>
+                <h4 className="text-center mb-4">Community Detection Model</h4>
+              </Row>
 
-                <div id="network-graph-container"></div>
-
+              <div key={`reverse-radio`} className="mb-3">
+                <Form.Check
+                  inline
+                  reverse
+                  label="Quora"
+                  name="group1"
+                  type="radio"
+                  id={`reverse-radio-1`}
+                  onClick={() => {
+                    setCommunityOption("Quora");
+                    changecomm(checkbox_status_quora, Comm_keywords_quora, "Quora");
+                  }}
+                />
+                <Form.Check
+                  inline
+                  reverse
+                  label="Sharechat"
+                  name="group1"
+                  type="radio"
+                  id={`reverse-radio-2`}
+                  onClick={() => {
+                    setCommunityOption("Sharechat");
+                    changecomm(checkbox_status_sharechat, Comm_keywords_sharechat, "Sharechat");
+                  }}
+                />
               </div>
 
-              <div id="cy" style={{ width: '100%', height: '500px' }}></div>
+              {/* Quora Section */}
+              {coomunityoption === "Quora" && (
+                <>
+                  <ReactDatePicker
+                    selected={CommunityDetectionDate}
+                    onChange={(date) => setCommunityDetectionDate(date)}
+                  />
+                  <Select
+                    onChange={setSelectedOption}
+                    value={selectedOption}
+                    isMulti
+                    name="keywords"
+                    options={Comm_keywords}
+                    className="basic-multi-select"
+                    classNamePrefix="select"
+                    isSearchable={true}
+                    noOptionsMessage={() => "Not Found"}
+                    required
+                  />
+                  <br />
+                </>
+              )}
 
-              {/* <Graph
-        id="graph-id"
-        graph={graph}
-        // options={options}
-      /> */}
+              {/* Sharechat Section */}
+              {coomunityoption === "Sharechat" && (
+                <>
+                  <Form.Group className="mb-3">
+                    <Form.Label>K-Value</Form.Label>
+                    <Form.Select onChange={(e) => setKValue(parseInt(e.target.value))}>
+                      <option value="">Select K</option>
+                      {[1000, 5000, 10000, 20000].map((val) => (
+                        <option key={val} value={val}>{val}</option>
+                      ))}
+                    </Form.Select>
+                  </Form.Group>
 
+                  <Form.Group className="mb-3">
+                    <Form.Label>Random Seed</Form.Label>
+                    <Form.Select onChange={(e) => setRandomSeed(parseInt(e.target.value))}>
+                      <option value="">Select Seed</option>
+                      {[123456, 246912, 740736, 2962944, 14814720, 88888320, 622218240, 4977745920, 44799713280,  447997132800].map((val) => (
+                        <option key={val} value={val}>{val}</option>
+                      ))}
+                    </Form.Select>
+                  </Form.Group>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label>Sampling Strategy</Form.Label>
+                    <Form.Select onChange={(e) => setSamplingStrategy(e.target.value)}>
+                      <option value="">Select Strategy</option>
+                      {["grab", "Snowball"].map((val) => (
+                        <option key={val} value={val}>{val}</option>
+                      ))}
+                    </Form.Select>
+                  </Form.Group>
+
+                  {/* Removed imageUrls display from here */}
+                </>
+              )}
+
+              <div className="d-flex gap-2">
+                <Button variant="primary" onClick={handleSubmit}>Submit</Button>
+                
+                {/* Download Button moved next to Submit button */}
+                {imageUrls.length > 0 && (
+                  <Button 
+                    variant="success" 
+                    onClick={() => downloadImages(imageUrls)}
+                  >Download Graphs</Button>
+                )}
+              </div>
+
+              {/* Display images after submission - removed from here */}
+            </Col>
+
+            <Col>
+              <Container>
+                <Row className="justify-content-center">
+                  <h4 className="text-center mb-4">Sample Graph</h4>
+                </Row>
+                <Row style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                  <Figure.Image
+                    style={{ width: '150%', maxWidth: '100%', height: '300px', objectFit: 'contain' }}
+                    alt="Banner Image"
+                    src={url + "static/CommunityDetection.png"}
+                  />
+                </Row>
+              </Container>
             </Col>
           </Row>
+
+          <Row><br /><br /></Row>
+
+          <Row>
+            <Col>
+              <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+                <div id="network-graph-container"></div>
+              </div>
+            </Col>
+          </Row>
+          
+          {/* Full width graph display */}
+          {imageUrls.length > 0 && (
+            <Row className="mt-4">
+              <h4 className="text-center mb-3">Generated Graphs</h4>
+              {imageUrls.map((src, idx) => (
+                <Col key={idx} xs={12} md={6} className="mb-4">
+                  <Figure className="text-center">
+                    <Figure.Image
+                      style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+                      alt={`Graph ${idx + 1}`}
+                      src={src}
+                    />
+                    <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
+                  </Figure>
+                </Col>
+              ))}
+            </Row>
+          )}
         </Container>
-
-
       </Tab>
+
+
 
 
       <Tab eventKey="Poltical Ads" title="Poltical Ads">
