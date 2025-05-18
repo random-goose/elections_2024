@@ -811,7 +811,7 @@ export default function Home() {
     return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/')
   }
 
-    const downloadImages = (urls) => {
+  const downloadImages = (urls) => {
     urls.forEach(async (url, index) => {
       try {
         // Fetch the image as a blob
@@ -820,22 +820,22 @@ export default function Home() {
           throw new Error(`Failed to fetch image: ${url}`);
         }
         const blob = await response.blob();
-  
+
         // Create a temporary object URL for the blob
         const objectUrl = URL.createObjectURL(blob);
-  
+
         // Create a link element for downloading
         const link = document.createElement('a');
         link.href = objectUrl;
-  
+
         // Extract file name from URL or create a default name
         const fileName = url.split('/').pop() || `graph_${index + 1}.png`;
         link.download = fileName;
-  
+
         // Trigger download
         document.body.appendChild(link);
         link.click();
-  
+
         // Clean up
         document.body.removeChild(link);
         URL.revokeObjectURL(objectUrl); // Revoke the object URL to free memory
@@ -858,12 +858,12 @@ export default function Home() {
     }
     else {
       if (kValue && randomSeed && samplingStrategy) {
-        // const img1 = `/images/graph_${kValue}_${randomSeed}_${samplingStrategy}.png`;
-        // const img2 = `/images/graph2_${kValue}_${randomSeed}_${samplingStrategy}.png`;
 
-        const img1 = `http://localhost:3500/comgraphs/Gender_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
-        const img2 = `http://localhost:3500/comgraphs/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
-        setImageUrls([img1, img2]);
+        const img1 = `${url}comgraphs/Gender_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
+        const img2 = `${url}comgraphs/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
+        const img3 =`${url}comgraphsvg/Gender_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.svg`
+        const img4 =`${url}comgraphsvg/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.svg`
+        setImageUrls([img1, img2, img3, img4]);
       } else {
         alert('Please select all parameters (K-Value, Random Seed, Sampling Strategy)');
       }
@@ -871,7 +871,7 @@ export default function Home() {
 
   };
   const getNodeData = (node, key) => {
-    const data = node.data; 
+    const data = node.data;
 
     // If there's only one <data> tag, xml2js gives an object not array
     const dataArray = Array.isArray(data) ? data : [data];
@@ -1548,7 +1548,7 @@ export default function Home() {
                     <Form.Label>Random Seed</Form.Label>
                     <Form.Select onChange={(e) => setRandomSeed(parseInt(e.target.value))}>
                       <option value="">Select Seed</option>
-                      {[123456, 246912, 740736, 2962944, 14814720, 88888320, 622218240, 4977745920, 44799713280,  447997132800].map((val) => (
+                      {[123456, 246912, 740736, 2962944, 14814720, 88888320, 622218240, 4977745920, 44799713280, 447997132800].map((val) => (
                         <option key={val} value={val}>{val}</option>
                       ))}
                     </Form.Select>
@@ -1570,11 +1570,11 @@ export default function Home() {
 
               <div className="d-flex gap-2">
                 <Button variant="primary" onClick={handleSubmit}>Submit</Button>
-                
+
                 {/* Download Button moved next to Submit button */}
                 {imageUrls.length > 0 && (
-                  <Button 
-                    variant="success" 
+                  <Button
+                    variant="success"
                     onClick={() => downloadImages(imageUrls)}
                   >Download Graphs</Button>
                 )}
@@ -1608,12 +1608,11 @@ export default function Home() {
               </div>
             </Col>
           </Row>
-          
-          {/* Full width graph display */}
+
           {imageUrls.length > 0 && (
             <Row className="mt-4">
               <h4 className="text-center mb-3">Generated Graphs</h4>
-              {imageUrls.map((src, idx) => (
+              {imageUrls.slice(0, 2).map((src, idx) => (
                 <Col key={idx} xs={12} md={6} className="mb-4">
                   <Figure className="text-center">
                     <Figure.Image
@@ -1644,17 +1643,17 @@ export default function Home() {
 
 
               {/* <Form onSubmit={(e)=>polticalads(e)}>
-    <Form.Group className="mb-3" controlId="Ads.text">
-        <Form.Label>Enter Poltical Party Name </Form.Label>
-        <Form.Control as="textarea" rows={1} onChange={(e)=>{setAds(e.target.value)}} />
-      </Form.Group>
+            <Form.Group className="mb-3" controlId="Ads.text">
+              <Form.Label>Enter Poltical Party Name </Form.Label>
+              <Form.Control as="textarea" rows={1} onChange={(e)=>{setAds(e.target.value)}} />
+              </Form.Group>
 
-     <Button variant="primary" type='submit'>
-        Submit
-      </Button>
+             <Button variant="primary" type='submit'>
+              Submit
+              </Button>
 
 
-    </Form> */}
+            </Form> */}
               {/* <iframe
         src={url+"grapdads/table.html"}
         title="Plotly Plot"
