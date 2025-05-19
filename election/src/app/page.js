@@ -1629,10 +1629,28 @@ export default function Home() {
       </Col>
      </Row>
 
-     {imageUrls.length > 0 && (
+     {imageUrls.length == 4 && (
       <Row className="mt-4">
        <h4 className="text-center mb-3">Generated Graphs</h4>
        {imageUrls.slice(0, 2).map((src, idx) => (
+        <Col key={idx} xs={12} md={6} className="mb-4">
+         <Figure className="text-center">
+          <Figure.Image
+           style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+           alt={`Graph ${idx + 1}`}
+           src={src}
+          />
+          <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
+         </Figure>
+        </Col>
+       ))}
+      </Row>
+     )}
+
+     {imageUrls.length == 2 && (
+      <Row className="mt-4">
+       <h4 className="text-center mb-3">Generated Graphs</h4>
+       {imageUrls.slice(0, 1).map((src, idx) => (
         <Col key={idx} xs={12} md={6} className="mb-4">
          <Figure className="text-center">
           <Figure.Image
