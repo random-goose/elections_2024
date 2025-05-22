@@ -128,39 +128,37 @@ const ClassificationReportBarplot = () => {
 
     return (
         <div className="p-6 max-w-6xl mx-auto">
-  <h4 className="text-center mb-4">Fake news spread on Reddit</h4>
+            <h4 className="text-center mb-4">Fake news spread on Reddit</h4>
 
-  <div className="mb-6 flex justify-center items-center gap-6  sm:flex-nowrap m-6">
-    <div className="flex items-center gap-2">
-      <label htmlFor="start-date" className="font-medium">Start Date:</label>
-      <input
-        type="date"
-        id="start-date"
-        className="border rounded px-2 py-1 mx-2"
-        onChange={e => setStartDate(e.target.value ? new Date(e.target.value) : null)}
-      />
-      <label htmlFor="end-date" className="font-medium mx-2">End Date:</label>
-      <input
-        type="date"
-        id="end-date"
-        className="border rounded px-2 py-1"
-        onChange={e => setEndDate(e.target.value ? new Date(e.target.value) : null)}
-      />
-      <button
-      className="px-4 py-2 bg-blue-500 mx-4 text-white rounded hover:bg-blue-600"
-      onClick={() => {
-        setStartDate(null);
-        setEndDate(null);
-        document.getElementById('start-date').value = '';
-        document.getElementById('end-date').value = '';
-      }}
-    >
-      Clear Filters
-    </button>
-    </div>
+            <div className="mb-6 flex w-full justify-center items-center gap-4" style={{ justifyContent: 'center' }}>
+                <label htmlFor="start-date" className="font-medium">Start Date:</label>
+                <input
+                    type="date"
+                    id="start-date"
+                    className="border rounded px-2 py-1 mx-2"
+                    onChange={e => setStartDate(e.target.value ? new Date(e.target.value) : null)}
+                />
+                <label htmlFor="end-date" className="font-medium mx-2">End Date:</label>
+                <input
+                    type="date"
+                    id="end-date"
+                    className="border rounded px-2 py-1"
+                    onChange={e => setEndDate(e.target.value ? new Date(e.target.value) : null)}
+                />
+                <button
+                    className="px-4 py-2 bg-blue-500 mx-4 text-white rounded hover:bg-blue-600"
+                    onClick={() => {
+                        setStartDate(null);
+                        setEndDate(null);
+                        document.getElementById('start-date').value = '';
+                        document.getElementById('end-date').value = '';
+                    }}
+                >
+                    Clear Filters
+                </button>
+            </div>
 
-    
-  </div>
+
 
 
             <div className="bg-white rounded-lg shadow-lg p-4 m-4">

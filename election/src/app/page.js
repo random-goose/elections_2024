@@ -2,7 +2,6 @@
 
 import Frameg from './Framesg';
 import ToggleSwitch from './Political_Ads/Facebook_Graphs/toggleButtons.js';
-import ClassificationReportHeatmap from './heatmap';
 import ClassificationReportBarplot from './FakeNewsPlot'
 import ClassificationReportBarplotMemes from './ToxicMemesPlot'
 import Button from 'react-bootstrap/Button';
