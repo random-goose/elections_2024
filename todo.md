@@ -57,9 +57,32 @@
         a) big data
         b) small data (for visualization)
 
-- refer to the video with sushant and bhupathi to determien framing model and inference scripts
+- ✅ refer to the video with sushant and bhupathi to determien framing model and inference scripts
     video link is on whatsapp
 
-- do ask harsha if the model is the latest one or not
+- ✅ do ask harsha if the model is the latest one or not
     because older model was about game, attack, misc frame
     we later changed it to attack and misc frames
+
+## 27th
+
+- ✅ sort the states in framing drop down
+
+- ✅ inference submit button popup - that has instructions to run inference
+
+- **place inference function at this file at this line number - will do in readme**
+
+- community det thread
+    - ✅ hover magnifier on  graphs
+    - **gif popup - unsure about placement**
+    - ✅ quora - instead of calendar input we can have drop down
+
+- political ads
+    - ✅ sum of vote diff
+    - ✅ which year to which year?
+    - ✅ comment out the silent period violations graph in politcal ads thread
+    - ✅ fix bugs in political ads visualization data
+    - ✅ make sure two different graphs give identical numbers in cross checking
+    - ✅ some discrepancies in google data
+
+- ✅ double y axis legend in toxic meme graphs

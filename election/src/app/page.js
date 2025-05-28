@@ -28,6 +28,7 @@ import './page.module.css'
 import Citation from './Citation.js';
 import Graph from 'react-graph-vis';
 import ReactDatePicker from 'react-datepicker';
+import MagnifierImage from './MagnifierImage'; // adjust path as needed
 export default function Home() {
 
  // let Comm_keywords=[]
@@ -860,13 +861,8 @@ export default function Home() {
    }
    else {
     console.log(CommunityDetectionDate)
-    const dateObj = new Date(CommunityDetectionDate);
-    const day = String(dateObj.getDate()).padStart(2, '0');
-    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-    const year = dateObj.getFullYear();
-    const formattedDate = `${day}-${month}-${year}`;
-    const img1 = `${url}comgraphsq/rseed_123456_${formattedDate}.png`
-    const img2 = `${url}comgraphsvgq/rseed_123456_${formattedDate}.svg`
+    const img1 = `${url}comgraphsq/rseed_123456_${CommunityDetectionDate}.png`
+    const img2 = `${url}comgraphsvgq/rseed_123456_${CommunityDetectionDate}.svg`
 
     console.log("img1", img1)
     console.log("img2", img2)
@@ -882,6 +878,7 @@ export default function Home() {
     const img2 = `${url}comgraphssc/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
     const img3 = `${url}comgraphsvgsc/Gender_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.svg`
     const img4 = `${url}comgraphsvgsc/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.svg`
+
     setImageUrls([img1, img2, img3, img4]);
    } else {
     alert('Please select all parameters (K-Value, Random Seed, Sampling Strategy)');
@@ -1454,7 +1451,7 @@ export default function Home() {
       {framingres.length > 0 &&
        <div style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '5px', width: '100%' }}>
 
-        <p><strong>FRAME IS </strong> {framingres}</p>
+        <p>Please read the readme.md file to get instructions on how to use inference scripts.</p>
         {/* <p><strong>Explanation is:</strong> {memsres}</p> */}
        </div>
       }</Col>
@@ -1527,28 +1524,38 @@ export default function Home() {
         />
        </div>
 
-       {/* Quora Section */}
-       {coomunityoption === "Quora" && (
-        <>
-         <ReactDatePicker
-          selected={CommunityDetectionDate}
-          onChange={(date) => setCommunityDetectionDate(date)}
-         />
-         {/* <Select
-          onChange={setSelectedOption}
-          value={selectedOption}
-          isMulti
-          name="keywords"
-          options={Comm_keywords}
-          className="basic-multi-select"
-          classNamePrefix="select"
-          isSearchable={true}
-          noOptionsMessage={() => "Not Found"}
-          required
-         /> */}
+        {coomunityoption === "Quora" && (
+         <>
+          <Form.Group className="mb-3">
+           <Form.Label>Select Date</Form.Label>
+           <Form.Select
+             value={CommunityDetectionDate || ""}
+             onChange={e => setCommunityDetectionDate(e.target.value)}
+             required
+           >
+             <option value="">Select a date</option>
+             <option value="03-06-2024">03-06-2024</option>
+             <option value="05-06-2024">05-06-2024</option>
+             <option value="06-06-2024">06-06-2024</option>
+             <option value="07-06-2024">07-06-2024</option>
+             <option value="08-06-2024">08-06-2024</option>
+             <option value="09-06-2024">09-06-2024</option>
+             <option value="10-05-2024">10-05-2024</option>
+             <option value="11-05-2024">11-05-2024</option>
+             <option value="11-06-2024">11-06-2024</option>
+             <option value="12-05-2025">12-05-2025</option>
+             <option value="12-06-2024">12-06-2024</option>
+             <option value="13-05-2024">13-05-2024</option>
+             <option value="13-06-2024">13-06-2024</option>
+             <option value="14-05-2024">14-05-2024</option>
+             <option value="15-05-2024">15-05-2024</option>
+             <option value="16-05-2024">16-05-2024</option>
+             <option value="17-05-2024">17-05-2024</option>
+           </Form.Select>
+          </Form.Group>
+         </>
+        )}
          <br />
-        </>
-       )}
 
        {/* Sharechat Section */}
        {coomunityoption === "Sharechat" && (
@@ -1577,7 +1584,7 @@ export default function Home() {
           <Form.Label>Sampling Strategy</Form.Label>
           <Form.Select onChange={(e) => setSamplingStrategy(e.target.value)}>
            <option value="">Select Strategy</option>
-           {["grab", "Snowball"].map((val) => (
+           {["grab", "snowball1 "].map((val) => (
             <option key={val} value={val}>{val}</option>
            ))}
           </Form.Select>
@@ -1634,11 +1641,14 @@ export default function Home() {
        {imageUrls.slice(0, 2).map((src, idx) => (
         <Col key={idx} xs={12} md={6} className="mb-4">
          <Figure className="text-center">
-          <Figure.Image
-           style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
-           alt={`Graph ${idx + 1}`}
-           src={src}
-          />
+          <MagnifierImage
+  src={src}
+  alt={`Graph ${idx + 1}`}
+  style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+  magnifierHeight={150}
+  magnifierWidth={150}
+  zoom={2}
+/>
           <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
          </Figure>
         </Col>
@@ -1652,17 +1662,21 @@ export default function Home() {
        {imageUrls.slice(0, 1).map((src, idx) => (
         <Col key={idx} xs={12} md={6} className="mb-4">
          <Figure className="text-center">
-          <Figure.Image
-           style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
-           alt={`Graph ${idx + 1}`}
-           src={src}
-          />
+          <MagnifierImage
+  src={src}
+  alt={`Graph ${idx + 1}`}
+  style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+  magnifierHeight={150}
+  magnifierWidth={150}
+  zoom={2}
+/>
           <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
          </Figure>
         </Col>
        ))}
       </Row>
      )}
+     
     </Container>
    </Tab>
 
@@ -1675,7 +1689,7 @@ export default function Home() {
      <Row>
       <Col >
        <Row className="justify-content-center">
-        <h4 className="text-center mb-4"><br></br><br></br><br></br><br></br><br></br>Poltical Ads </h4>
+        <h4 className="text-center mb-4"><br></br><br></br><br></br><br></br><br></br>Poltical Ads</h4>
        </Row>
 
 
@@ -1721,7 +1735,7 @@ export default function Home() {
       </Container></Col>
 
      </Row>
-     <Row>
+     {/* <Row>
       <Col>
        <iframe
         src={url + "grapdads/silent_period_1.html"}
@@ -1745,8 +1759,8 @@ export default function Home() {
         width="100%"
         height="600px"
        />
-      </Col>
-     </Row>
+      </Col>  
+     </Row> */}
     </Container>
 
 

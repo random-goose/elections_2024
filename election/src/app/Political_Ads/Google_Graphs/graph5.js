@@ -165,6 +165,7 @@ export default function Graph5() {
 											<option value="Gujarat">Gujarat</option>
 											<option value="Haryana">Haryana</option>
 											<option value="Himachal Pradesh">Himachal Pradesh</option>
+                                            <option value="India">India</option>
 											<option value="Jharkhand">Jharkhand</option>
 											<option value="Karnataka">Karnataka</option>
 											<option value="Kerala">Kerala</option>

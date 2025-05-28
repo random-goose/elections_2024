@@ -15,7 +15,7 @@ const ClassificationReportBarplotMemes = () => {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('http://localhost:3500/static/toxic_memes.csv');
+                const response = await fetch('http://localhost:3500/static/toxic_memes_new.csv');
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,7 +28,7 @@ const ClassificationReportBarplotMemes = () => {
                     header: true,
                     skipEmptyLines: true,
                     dynamicTyping: true,
-                    transformHeader: (header) => header.trim() // Clean headers
+                    transformHeader: (header) => header.trim()
                 });
 
                 if (errors.length > 0) {
@@ -37,19 +37,18 @@ const ClassificationReportBarplotMemes = () => {
 
                 // Filter out rows with missing essential data
                 const validData = parsedData.filter(row =>
-                    row.created_utc && row.subreddit && (row.count !== undefined && row.count !== null)
+                    row.created_utc && row.subreddit &&
+                    (row.negative_count !== undefined && row.negative_count !== null) &&
+                    (row.positive_count !== undefined && row.positive_count !== null)
                 );
 
                 // Sort data by date
                 validData.sort((a, b) => new Date(a.created_utc) - new Date(b.created_utc));
 
-                console.log('Parsed data sample:', validData.slice(0, 3)); // Debug log
-
                 setData(validData);
                 setFilteredData(validData);
                 setError(null);
             } catch (error) {
-                console.error('Error fetching CSV data:', error);
                 setError(error.message);
             } finally {
                 setLoading(false);
@@ -68,11 +67,10 @@ const ClassificationReportBarplotMemes = () => {
             }
 
             const filtered = data.filter(row => {
-                const date = new Date(row.created_utc); // Using created_utc field
+                const date = new Date(row.created_utc);
                 return date >= startDate && date <= endDate;
             });
 
-            console.log('Filtered data length:', filtered.length); // Debug log
             setFilteredData(filtered);
         };
 
@@ -85,28 +83,29 @@ const ClassificationReportBarplotMemes = () => {
 
         data.forEach(row => {
             const subreddit = row.subreddit;
-            const count = parseInt(row.count) || 0;
+            const negative = parseInt(row.negative_count) || 0;
+            const positive = parseInt(row.positive_count) || 0;
 
-            if (subredditCounts[subreddit]) {
-                subredditCounts[subreddit] += count;
-            } else {
-                subredditCounts[subreddit] = count;
+            if (!subredditCounts[subreddit]) {
+                subredditCounts[subreddit] = { negative: 0, positive: 0 };
             }
+            subredditCounts[subreddit].negative += negative;
+            subredditCounts[subreddit].positive += positive;
         });
 
-        // Sort subreddits by total count (descending)
+        // Sort subreddits by total (negative + positive) count descending
         const sortedSubreddits = Object.entries(subredditCounts)
-            .sort(([, a], [, b]) => b - a);
+            .sort(([, a], [, b]) => (b.negative + b.positive) - (a.negative + a.positive));
 
         return {
             subreddits: sortedSubreddits.map(([subreddit]) => `r/${subreddit}`),
-            counts: sortedSubreddits.map(([, count]) => count)
+            negativeCounts: sortedSubreddits.map(([, counts]) => counts.negative),
+            positiveCounts: sortedSubreddits.map(([, counts]) => counts.positive)
         };
     };
 
-    const { subreddits, counts } = calculateSubredditCounts(filteredData);
+    const { subreddits, negativeCounts, positiveCounts } = calculateSubredditCounts(filteredData);
 
-    // Show loading state
     if (loading) {
         return (
             <div className="p-6 max-w-6xl mx-auto">
@@ -115,7 +114,6 @@ const ClassificationReportBarplotMemes = () => {
         );
     }
 
-    // Show error state
     if (error) {
         return (
             <div className="p-6 max-w-6xl mx-auto">
@@ -158,50 +156,70 @@ const ClassificationReportBarplotMemes = () => {
                 </button>
             </div>
 
-
-
-
             <div className="bg-white rounded-lg shadow-lg p-4 m-4">
                 {subreddits.length > 0 ? (
                     <Plot
-                        data={[
-                            {
-                                x: subreddits,
-                                y: counts,
-                                type: 'bar',
-                                marker: {
-                                    color: 'rgba(55, 128, 191, 0.7)',
-                                    line: {
-                                        color: 'rgba(55, 128, 191, 1.0)',
-                                        width: 1
-                                    }
-                                },
-                                hovertemplate: '<b>%{x}</b><br>Count: %{y}<extra></extra>'
-                            }
-                        ]}
-                        layout={{
-                            autosize: true,
-                            title: {
-                                text: 'Subreddit Activity Count',
-                                font: { size: 20 }
-                            },
-                            xaxis: {
-                                tickangle: -45
-                            },
-                            yaxis: {
-                                title: 'Toxic Memes Count'
-                            },
-                            margin: { b: 120 },
-                            height: 600,
-                            showlegend: false
-                        }}
-                        config={{
-                            displayModeBar: true,
-                            displaylogo: false
-                        }}
-                        useResizeHandler={true}
-                        style={{ width: '100%', height: '100%' }}
-                    />
+  data={[
+    {
+      x: subreddits,
+      y: negativeCounts,
+      type: 'bar',
+      name: 'Safe Count',
+      marker: {
+        color: 'rgba(255, 45, 45, 0.77)',
+        line: {
+          color: 'rgba(255, 99, 132, 1.0)',
+          width: 1,
+        },
+      },
+      // Removed yaxis: 'y1'
+      hovertemplate: '<b>%{x}</b><br>Negative: %{y}<extra></extra>',
+    },
+    {
+      x: subreddits,
+      y: positiveCounts,
+      type: 'bar',
+      name: 'Toxic Count',
+      marker: {
+        color: 'rgba(54, 162, 235, 0.7)',
+        line: {
+          color: 'rgba(54, 162, 235, 1.0)',
+          width: 1,
+        },
+      },
+      // Removed yaxis: 'y2'
+      hovertemplate: '<b>%{x}</b><br>Toxic: %{y}<extra></extra>',
+    },
+  ]}
+  layout={{
+    autosize: true,
+    barmode: 'group', // side-by-side bars on the same y-axis
+    title: {
+      text: 'Subreddit Safe/Toxic Meme Counts',
+      font: { size: 20 },
+    },
+    xaxis: {
+      tickangle: -45,
+    },
+    yaxis: {
+      title: 'Count', // single y-axis for both
+      side: 'left',
+      showgrid: true,
+      zeroline: true,
+    },
+    margin: { b: 120 },
+    height: 600,
+    showlegend: true,
+    legend: { orientation: 'h', y: -0.2 },
+  }}
+  config={{
+    displayModeBar: true,
+    displaylogo: false,
+  }}
+  useResizeHandler={true}
+  style={{ width: '100%', height: '100%' }}
+/>
+                    
 
                 ) : (
                     <div className="text-center py-8 text-gray-500">
@@ -217,9 +235,8 @@ const ClassificationReportBarplotMemes = () => {
                 )}
             </div>
 
-            {/* Debug information */}
             <div className="mt-4 text-xs text-gray-400 text-center">
-                {subreddits.length} subreddits found, Total counts: {counts.reduce((a, b) => a + b, 0)}
+                {subreddits.length} subreddits found, Total Safe: {negativeCounts.reduce((a, b) => a + b, 0)}, Total T: {positiveCounts.reduce((a, b) => a + b, 0)}
             </div>
         </div>
     );

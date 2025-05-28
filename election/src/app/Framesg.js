@@ -64,46 +64,46 @@ const Frameg = () => {
 
   // Options for dropdowns
   const allStates = [
-    { value: 'himachal pradesh', label: 'Himachal Pradesh' },
-    { value: 'delhi', label: 'Delhi' },
-    { value: 'orissa', label: 'Orissa' },
-    { value: 'gujarat', label: 'Gujarat' },
-    { value: 'telangana', label: 'Telangana' },
-    { value: 'tamil nadu', label: 'Tamil Nadu' },
-    { value: 'uttar pradesh', label: 'Uttar Pradesh' },
-    { value: 'maharashtra', label: 'Maharashtra' },
-    { value: 'karnataka', label: 'Karnataka' },
+    { value: 'andaman & nicobar islands', label: 'Andaman & Nicobar Islands' },
     { value: 'andhra pradesh', label: 'Andhra Pradesh' },
-    { value: 'goa', label: 'Goa' },
-    { value: 'madhya pradesh', label: 'Madhya Pradesh' },
-    { value: 'uttarakhand', label: 'Uttarakhand' },
-    { value: 'west bengal', label: 'West Bengal' },
-    { value: 'jammu & kashmir', label: 'Jammu & Kashmir' },
-    { value: 'rajasthan', label: 'Rajasthan' },
-    { value: 'kerala', label: 'Kerala' },
-    { value: 'assam', label: 'Assam' },
     { value: 'arunachal pradesh', label: 'Arunachal Pradesh' },
-    { value: 'pondicherry', label: 'Pondicherry' },
-    { value: 'punjab', label: 'Punjab' },
+    { value: 'assam', label: 'Assam' },
     { value: 'bihar', label: 'Bihar' },
-    { value: 'jharkhand', label: 'Jharkhand' },
-    { value: 'manipur', label: 'Manipur' },
-    { value: 'haryana', label: 'Haryana' },
     { value: 'chhattisgarh', label: 'Chhattisgarh' },
-    { value: 'tripura', label: 'Tripura' },
-    { value: 'sikkim', label: 'Sikkim' },
+    { value: 'dadra & nagar haveli', label: 'Dadra & Nagar Haveli' },
+    { value: 'daman & diu', label: 'Daman & Diu' },
+    { value: 'delhi', label: 'Delhi' },
+    { value: 'goa', label: 'Goa' },
+    { value: 'gujarat', label: 'Gujarat' },
+    { value: 'haryana', label: 'Haryana' },
+    { value: 'himachal pradesh', label: 'Himachal Pradesh' },
+    { value: 'jammu & kashmir', label: 'Jammu & Kashmir' },
+    { value: 'jharkhand', label: 'Jharkhand' },
+    { value: 'karnataka', label: 'Karnataka' },
+    { value: 'kerala', label: 'Kerala' },
+    { value: 'lakshadweep', label: 'Lakshadweep' },
+    { value: 'maharashtra', label: 'Maharashtra' },
+    { value: 'madhya pradesh', label: 'Madhya Pradesh' },
+    { value: 'manipur', label: 'Manipur' },
+    { value: 'meghalaya', label: 'Meghalaya' },
     { value: 'mizoram', label: 'Mizoram' },
     { value: 'nagaland', label: 'Nagaland' },
-    { value: 'meghalaya', label: 'Meghalaya' },
-    { value: 'lakshadweep', label: 'Lakshadweep' },
-    { value: 'dadra & nagar haveli', label: 'Dadra & Nagar Haveli' },
-    { value: 'andaman & nicobar islands', label: 'Andaman & Nicobar Islands' },
-    { value: 'daman & diu', label: 'Daman & Diu' },
+    { value: 'orissa', label: 'Orissa' },
+    { value: 'pondicherry', label: 'Pondicherry' },
+    { value: 'punjab', label: 'Punjab' },
+    { value: 'rajasthan', label: 'Rajasthan' },
+    { value: 'sikkim', label: 'Sikkim' },
+    { value: 'tamil nadu', label: 'Tamil Nadu' },
+    { value: 'telangana', label: 'Telangana' },
+    { value: 'tripura', label: 'Tripura' },
+    { value: 'uttar pradesh', label: 'Uttar Pradesh' },
+    { value: 'uttarakhand', label: 'Uttarakhand' },
+    { value: 'west bengal', label: 'West Bengal' },
   ];
 
   const allFrames = [
-    { value: 'Miscellaneous', label: 'Miscellaneous' },
-    { value: 'Attack', label: 'Attack' },
+    { value: 'miscellaneous', label: 'Miscellaneous' },
+    { value: 'attack', label: 'Attack' },
   ];
 
   const allParties = [
@@ -125,13 +125,13 @@ const Frameg = () => {
   ];
 
   const allSources = [
-    { value: 'Hindu', label: 'Hindu' },
-    { value: 'Ndtv', label: 'Ndtv' },
-    { value: 'Toi', label: 'Toi' },
-    { value: 'India_Today', label: 'India Today' },
-    { value: 'Indian_Express', label: 'Indian Express' },
-    { value: 'India_Zee', label: 'India Zee' },
-    { value: 'Republic', label: 'Republic' },
+    { value: 'hindu', label: 'Hindu' },
+    { value: 'ndtv', label: 'Ndtv' },
+    { value: 'toi', label: 'Toi' },
+    { value: 'india_today', label: 'India Today' },
+    { value: 'indian_express', label: 'Indian Express' },
+    { value: 'india_zee', label: 'India Zee' },
+    { value: 'republic', label: 'Republic' },
   ];
 
   // Helper function to format date as YYYY-MM-DD
@@ -287,7 +287,7 @@ const Frameg = () => {
       {/* First row */}
       <div className="row-container">
         <div className="container">
-          <h2>News Source Analysis</h2>
+          <h4>News Source Analysis</h4>
           <div className="dropdown-container">
             <Select
               options={allStates}
@@ -344,7 +344,7 @@ const Frameg = () => {
       {/* Second row - two charts side by side */}
       <div className="row-container">
         <div className="container">
-          <h2>Prediction Analysis</h2>
+          <h4>Prediction Analysis</h4>
           <div className="dropdown-container">
             <Select
               options={allStates}
@@ -398,7 +398,7 @@ const Frameg = () => {
         </div>
 
         <div className="container">
-          <h2>States Analysis</h2>
+          <h4>States Analysis</h4>
           <div className="dropdown-container">
             <Select
               options={allFrames}
@@ -455,7 +455,7 @@ const Frameg = () => {
       {/* Third row */}
       <div className="row-container">
         <div className="container">
-          <h2>Parties Analysis</h2>
+          <h4>Parties Analysis</h4>
           <div className="dropdown-container">
             <Select
               options={allStates}

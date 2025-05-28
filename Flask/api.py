@@ -1,16 +1,51 @@
 from flask import Flask, request, jsonify, make_response
-import warnings 
+import warnings
 warnings.filterwarnings('ignore')
 from flask_cors import CORS
 import pandas as pd
+import ast
 from functions import *
 
 app = Flask(__name__)
 CORS(app)
 
-global df, df2
+global df
 df = pd.read_csv("./model_predictions.csv")
+print("DataFrame columns:", df.columns.tolist())
+print("DataFrame shape:", df.shape)
+print("First few rows:")
+print(df.head())
 df["date"] = pd.to_datetime(df["date"])
+
+# Parse the dictionary and list columns
+def parse_aggregated_state_counts(row):
+    try:
+        if pd.isna(row) or row == '{}':
+            return {}
+        return ast.literal_eval(row)
+    except:
+        return {}
+
+def parse_list_column(row):
+    try:
+        if pd.isna(row):
+            return []
+        return ast.literal_eval(row)
+    except:
+        return []
+
+# Apply parsing to the dataframe
+df['aggregated_state_counts_parsed'] = df['aggregated_state_counts'].apply(parse_aggregated_state_counts)
+df['found_party_parsed'] = df['found_party'].apply(parse_list_column)
+df['found_parties_parsed'] = df['found_parties'].apply(parse_list_column)
+
+# Create state_with_max_count column
+def get_state_with_max_count(state_dict):
+    if not state_dict:
+        return None
+    return max(state_dict, key=state_dict.get)
+
+df['state_with_max_count'] = df['aggregated_state_counts_parsed'].apply(get_state_with_max_count)
 
 @app.before_request
 def handle_options_request():
@@ -30,9 +65,7 @@ def source():
     parties = data['parties']
     states = data['states']
     predictions = data['predictions']
-
     print("before fn", states)
-
     d = news_source_visual(df, start_date, end_date, parties, states, predictions)
     return jsonify(d)
 
@@ -44,7 +77,6 @@ def prediction():
     parties = data['parties']
     src = data['src']
     states = data['states']
-
     d = prediction_visual(df, start_date, end_date, parties, states, src)
     return jsonify(d)
 
@@ -56,7 +88,6 @@ def statess():
     parties = data['parties']
     src = data['src']
     predictions = data['predictions']
-
     d = states_visual(df, start_date, end_date, parties, predictions, src)
     return jsonify(d)
 
@@ -68,17 +99,8 @@ def partiess():
     src = data['src']
     predictions = data['predictions']
     states = data['states']
-
     d = parties_visual(df, start_date, end_date, states, predictions, src)
     return jsonify(d)
-
-# Set up CORS headers for every response
-# @app.after_request
-# def after_request(response):
-#     response.headers.add("Access-Control-Allow-Origin", "*")
-#     response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-#     response.headers.add("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
-#     return response
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
