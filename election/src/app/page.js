@@ -1384,7 +1384,7 @@ export default function Home() {
       {fakenesres.length > 0 &&
        <div style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '5px', width: '100%' }}>
 
-        <p><strong>You will receive an email within  10 Minutes  </strong> </p>
+        <p>Please read the readme.md file to get instructions on how to use inference scripts.</p>
         {/* <p><strong>Explanation is:</strong> {memsres}</p> */}
        </div>
       }
