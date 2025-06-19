@@ -227,3 +227,23 @@ Once the server is up and running, the server processes the request sent from th
 ## Troubleshooting
 
 - If you encounter any issues during setup or usage, raise an issue.
+
+### Common Errors
+
+if you encounter
+```
+> election@0.1.0 dev
+> next dev
+========================================================================
+Welcome to nmh version 1.8
+See the release notes in /usr/share/doc/nmh/NEWS
+Send bug reports, questions, suggestions, and patches to
+nmh-workers@nongnu.org.  That mailing list is relatively quiet, so user
+questions are encouraged.  Users are also encouraged to subscribe, and
+view the archives, at https://lists.gnu.org/mailman/listinfo/nmh-workers
+This message will not be repeated until nmh is next updated.
+========================================================================
+Press enter to continue: no
+next: usage: next [+folder] [switches] [switches for showproc]
+```
+when you pass the command `npm run dev`, try running `npx next dev`, and then `npm run dev` again. (this is prone to happen the first time you boot up the dashboard)
