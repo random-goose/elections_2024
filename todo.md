@@ -71,10 +71,12 @@
 - ✅ inference submit button popup - that has instructions to run inference
 
 - **place inference function at this file at this line number - will do in readme**
+    - add this right now to the readme, and change the remaining things later.
 
 - community det thread
     - ✅ hover magnifier on  graphs
     - **gif popup - unsure about placement**
+        - below the selector for sampling, and above the submit button
     - ✅ quora - instead of calendar input we can have drop down
 
 - political ads
@@ -84,5 +86,24 @@
     - ✅ fix bugs in political ads visualization data
     - ✅ make sure two different graphs give identical numbers in cross checking
     - ✅ some discrepancies in google data
+        - remove the rows without the demographic data and check.
+        - in the 2nd graph, each party should have its total voteshare difference displayed
 
 - ✅ double y axis legend in toxic meme graphs
+    - check if the values add up
+    - swap colors in the graph
+
+- readme
+    - how to install dashboard from scratch
+    - which files are need to be downloaded from drive
+    - where to place them 
+    - how to run the dashboard
+    - if needed prepare a separate readme file for inference functions
+    - that readme file will have instructions
+        "contact these authors for inference scripts"
+        "ask them the way to install the necessary libraries"
+        once everything is setup, place your inference function at line number xyz of our dashboard code
+
+- backend folder pruning- remove the big files which are not our responsibility - we will ask users to contact authors
+
+- after the final git push, and readme file being finished, ritwik will take the screenshots from the report while truying 

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="assets/img/favicon.ico">
+<title>Mediumish - A Medium style template by WowThemes.net</title>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<link href="assets/css/mediumish.css" rel="stylesheet">
+<style>
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column; /* Arrange children in a column */
+      align-items: center; /* Center items horizontally */
+    }
+    .ag-theme-alpine {
+      width: 100%;
+    }
+    .container-stats {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .container-stats div {
+      margin: 10px;
+    }
+</style>
+</head>
+<body>
+
+<script>
+		let gridApi; // Variable to hold the grid API
+					document.addEventListener('DOMContentLoaded', function () {
+						fetchCsvData();
+					});
+					// http://localhost:3500/grapdads/
+					async function fetchCsvData() {
+						const response = await fetch('http://localhost:3500/grapdads/to_render.csv');
+						const csvData = await response.text();
+						Papa.parse(csvData, {
+							complete: function(results) {
+								initializeAgGrid(results.data);
+							},
+							header: true
+						});
+						const resp2= await fetch('http://localhost:3500/grapdads/metadata.csv');
+						const csvData2 = await resp2.text();
+						Papa.parse(csvData2, {
+							complete: function(results) {
+								populateDropdown(results.data, 'names'); 
+							},
+							header: true
+						});
+					}
+					function populateDropdown(data, columnName) {
+						const dropdown = document.getElementById('filterDropdown');
+						const uniqueValues = new Set(data.map(item => item[columnName]));
+						uniqueValues.forEach(value => {
+							const option = document.createElement('option');
+							option.value = option.textContent = value;
+							dropdown.appendChild(option);
+						});
+					}
+					function initializeAgGrid(rowData) {
+						const columnDefs = [
+							{ field: 'translated page_name', sortable: true, filter: true },
+							{ field: 'translated ad_creative_bodies', sortable: true, filter: true },
+							{ field: 'ad_creative_link_descriptions', sortable: true, filter: true },
+							{
+								field: 'lower_bound_spend',
+								sortable: true,
+								filter: true,
+								type: 'numericColumn',
+								// Enable aggregation for lower_bound_spend column
+								enableValue: true,
+								aggFunc: 'sum'
+							},
+							{
+								field: 'upper_bound_spend',
+								sortable: true,
+								filter: true,
+								type: 'numericColumn',
+								// Enable aggregation for upper_bound_spend column
+								enableValue: true,
+								aggFunc: 'sum'
+							}
+						];
+						const statusBar = {
+							statusPanels: [
+								
+							],
+						};
+						const gridOptions = {
+							columnDefs: columnDefs,
+							rowData: rowData,
+							pagination: true,
+							paginationPageSize: 25,
+							enableRangeSelection: true,
+							statusBar: statusBar,
+							enableRangeSelection: true,
+							onGridReady: function (params) {
+								gridApi = params.api; // Store the grid API for later use
+								params.api.sizeColumnsToFit(); // Adjust column size for better readability
+								updateSums(); // Initial sum calculation
+							},
+							onFilterChanged: function () {
+								updateSums(); // Update sums on filtering
+							}
+						};
+						new agGrid.Grid(document.getElementById('myGrid'),gridOptions);
+					}
+					function applySearch() {
+						const query = document.getElementById('search-box').value.toLowerCase();
+						gridApi.setQuickFilter(query);
+					}
+					function getMetadataForSelectedOption(selectedValue) {
+						// This is just a placeholder; you would fetch and return the actual metadata related to the selectedValue
+						return `The Candidate is ${selectedValue}.`;
+					}
+					function displayMetadata(selectedValue) {
+						const metadata = getMetadataForSelectedOption(selectedValue);
+						document.getElementById('metadataDisplay').textContent = `${metadata}`;
+					}
+					function applyFilter() {
+						const selectedValue = document.getElementById('filterDropdown').value;
+						gridApi.setQuickFilter(selectedValue);
+						displayMetadata(selectedValue);
+					}
+					function updateSums() {
+						const allRowData = [];
+						gridApi.forEachNodeAfterFilterAndSort(node => allRowData.push(node.data));
+				
+						const lowerBoundSpendSum = allRowData.reduce((sum, row) => sum + parseFloat(row.lower_bound_spend || 0), 0);
+						const upperBoundSpendSum = allRowData.reduce((sum, row) => sum + parseFloat(row.upper_bound_spend || 0), 0);
+						const totalSpendSum = lowerBoundSpendSum + upperBoundSpendSum;
+				
+						document.getElementById('lowerBoundSpendSum').textContent = lowerBoundSpendSum.toFixed(2);
+						document.getElementById('upperBoundSpendSum').textContent = upperBoundSpendSum.toFixed(2);
+						document.getElementById('totalSpendSum').textContent = totalSpendSum.toFixed(2);
+					}
+					</script>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="assets/js/mediumish.js"></script>
+</body>
+</html>

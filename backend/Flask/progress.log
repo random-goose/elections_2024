@@ -1,0 +1,171 @@
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T12:58:07.305367', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T13:04:06.265972', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T13:05:04.676174', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T13:46:58.780431', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T13:47:50.528121', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T13:49:03.564229', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T13:49:59.618133', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 13:53:11] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 13:53:38] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 13:54:35] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 13:55:09] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 500 -
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:02:44.265768', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:02:56] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 202 -
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:08:03.082351', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:09:45.646828', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:10:21.743369', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:10:47.827237', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:11:04] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 202 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:13:37] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 202 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\cgaur\\OneDrive\\Desktop\\Dashboard\\Election_24-main\\backend\\Flask\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:15:30.498742', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:15:45] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 202 -
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:16:43.312097', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:18:32.163020', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:18:54.876208', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:19:44.909960', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:19:55] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:20:45] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\cgaur\\OneDrive\\Desktop\\Dashboard\\Election_24-main\\backend\\Flask\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:22:17.830735', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:23:06.449679', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:23:26] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 202 -
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:24:48.975416', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:24:49.279228', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:24:49.381776', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:24:52.386593', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:25:13.333026', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:25:39.558301', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:25:39.684185', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:25:41.350581', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:25:44.997204', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:26:48.136179', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:27:56.443012', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug: * Detected change in 'C:\\Users\\cgaur\\OneDrive\\Desktop\\Dashboard\\Election_24-main\\backend\\Flask\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:29:11.860950', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:29:15.814389', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug: * Detected change in 'C:\\Users\\cgaur\\OneDrive\\Desktop\\Dashboard\\Election_24-main\\backend\\Flask\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:30:53.059674', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:37:25.815285', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:38:30.642015', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:38:40] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:38:40] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:38:45] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 500 -
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:45:47.742142', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:46:54.522419', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:47:03] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:47:04] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:47:09] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 202 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\cgaur\\OneDrive\\Desktop\\Dashboard\\Election_24-main\\backend\\Flask\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T14:58:17.166906', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:58:27] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:58:27] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:58:42] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 14:59:40] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 15:00:04] "[35m[1mPOST /FakeNewsRediction HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 15:00:31] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Jun/2024 15:00:39] "POST /FramePRediction HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\cgaur\\OneDrive\\Desktop\\Dashboard\\Election_24-main\\backend\\Flask\\Fake_news\\inference.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T15:03:56.571677', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T15:03:57.997585', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 782-978-925
+INFO:werkzeug: * Detected change in 'C:\\Users\\cgaur\\OneDrive\\Desktop\\Dashboard\\Election_24-main\\backend\\Flask\\Fake_news\\inference.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-12T15:05:54.504883', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}
+INFO:gensim.models.keyedvectors:loading projection weights from C:\Users\cgaur/gensim-data\glove-wiki-gigaword-100\glove-wiki-gigaword-100.gz
+INFO:gensim.utils:KeyedVectors lifecycle event {'msg': 'loaded (400000, 100) matrix of type float32 from C:\\Users\\cgaur/gensim-data\\glove-wiki-gigaword-100\\glove-wiki-gigaword-100.gz', 'binary': False, 'encoding': 'utf8', 'datetime': '2024-06-19T13:15:38.690670', 'gensim': '4.3.2', 'python': '3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]', 'platform': 'Windows-11-10.0.22631-SP0', 'event': 'load_word2vec_format'}

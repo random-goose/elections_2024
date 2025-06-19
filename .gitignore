@@ -1,2 +1,15 @@
 Flask/model_predictions.csv
-backend/
+backend_full/
+backend/__pycache__/
+backend/Flask/VSG/
+backend/Flask/TSG/
+backend/Flask/data/
+backend/Flask/Framing/
+backend/Flask/cores/
+backend/Flask/MFND/
+backend/Flask/models/
+backend/Flask/processor/
+backend/graph/share_chat_full.graphml
+size.sh 
+fakenews-inf-server.txt
+hatespeech-inf-server.txt
