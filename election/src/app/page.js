@@ -874,10 +874,15 @@ export default function Home() {
   else {
    if (kValue && randomSeed && samplingStrategy) {
 
-    const img1 = `${url}comgraphssc/Gender_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
-    const img2 = `${url}comgraphssc/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.png`
-    const img3 = `${url}comgraphsvgsc/Gender_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.svg`
-    const img4 = `${url}comgraphsvgsc/Keywords_rseed_${randomSeed}_K_${kValue}_style_${samplingStrategy}.svg`
+    let strategy = samplingStrategy;
+    if (strategy === 'snowball') { 
+      strategy = 'snowball2';
+    }
+
+    const img1 = `${url}comgraphssc/Gender_rseed_${randomSeed}_K_${kValue}_style_${strategy}.png`
+    const img2 = `${url}comgraphssc/Keywords_rseed_${randomSeed}_K_${kValue}_style_${strategy}.png`
+    const img3 = `${url}comgraphsvgsc/Gender_rseed_${randomSeed}_K_${kValue}_style_${strategy}.svg`
+    const img4 = `${url}comgraphsvgsc/Keywords_rseed_${randomSeed}_K_${kValue}_style_${strategy}.svg`
 
     setImageUrls([img1, img2, img3, img4]);
    } else {
@@ -1486,141 +1491,158 @@ export default function Home() {
     <Frameg />
 
    </Tab>
-   {/* #########################################################################################
-                                Community Detection
-############################################################################################# */}
-   <Tab eventKey="Com_Dot" title="Community Detection">
+  {/* ######################################################################################### */}
+                  {/* Community Detection */}
+  {/* ############################################################################################# */}
+     <Tab eventKey="Com_Dot" title="Community Detection">
     <Container>
      <Row>
       <Col>
        <Row>
-        <h4 className="text-center mb-4">Community Detection Model</h4>
+      <h4 className="text-center mb-4">Community Detection Model</h4>
        </Row>
 
        <div key={`reverse-radio`} className="mb-3">
-        <Form.Check
-         inline
-         reverse
-         label="Quora"
-         name="group1"
-         type="radio"
-         id={`reverse-radio-1`}
-         onClick={() => {
-          setCommunityOption("Quora");
-          changecomm(checkbox_status_quora, Comm_keywords_quora, "Quora");
-         }}
-        />
-        <Form.Check
-         inline
-         reverse
-         label="Sharechat"
-         name="group1"
-         type="radio"
-         id={`reverse-radio-2`}
-         onClick={() => {
-          setCommunityOption("Sharechat");
-          changecomm(checkbox_status_sharechat, Comm_keywords_sharechat, "Sharechat");
-         }}
-        />
+      <Form.Check
+       inline
+       reverse
+       label="Quora"
+       name="group1"
+       type="radio"
+       id={`reverse-radio-1`}
+       onClick={() => {
+        setCommunityOption("Quora");
+        changecomm(checkbox_status_quora, Comm_keywords_quora, "Quora");
+       }}
+      />
+      <Form.Check
+       inline
+       reverse
+       label="Sharechat"
+       name="group1"
+       type="radio"
+       id={`reverse-radio-2`}
+       onClick={() => {
+        setCommunityOption("Sharechat");
+        changecomm(checkbox_status_sharechat, Comm_keywords_sharechat, "Sharechat");
+       }}
+      />
        </div>
 
-        {coomunityoption === "Quora" && (
-         <>
-          <Form.Group className="mb-3">
-           <Form.Label>Select Date</Form.Label>
-           <Form.Select
-             value={CommunityDetectionDate || ""}
-             onChange={e => setCommunityDetectionDate(e.target.value)}
-             required
-           >
-             <option value="">Select a date</option>
-             <option value="03-06-2024">03-06-2024</option>
-             <option value="05-06-2024">05-06-2024</option>
-             <option value="06-06-2024">06-06-2024</option>
-             <option value="07-06-2024">07-06-2024</option>
-             <option value="08-06-2024">08-06-2024</option>
-             <option value="09-06-2024">09-06-2024</option>
-             <option value="10-05-2024">10-05-2024</option>
-             <option value="11-05-2024">11-05-2024</option>
-             <option value="11-06-2024">11-06-2024</option>
-             <option value="12-05-2025">12-05-2025</option>
-             <option value="12-06-2024">12-06-2024</option>
-             <option value="13-05-2024">13-05-2024</option>
-             <option value="13-06-2024">13-06-2024</option>
-             <option value="14-05-2024">14-05-2024</option>
-             <option value="15-05-2024">15-05-2024</option>
-             <option value="16-05-2024">16-05-2024</option>
-             <option value="17-05-2024">17-05-2024</option>
-           </Form.Select>
-          </Form.Group>
-         </>
-        )}
-         <br />
+      {coomunityoption === "Quora" && (
+       <>
+        <Form.Group className="mb-3">
+         <Form.Label>Select Date</Form.Label>
+         <Form.Select
+         value={CommunityDetectionDate || ""}
+         onChange={e => setCommunityDetectionDate(e.target.value)}
+         required
+         >
+         <option value="">Select a date</option>
+         <option value="03-06-2024">03-06-2024</option>
+         <option value="05-06-2024">05-06-2024</option>
+         <option value="06-06-2024">06-06-2024</option>
+         <option value="07-06-2024">07-06-2024</option>
+         <option value="08-06-2024">08-06-2024</option>
+         <option value="09-06-2024">09-06-2024</option>
+         <option value="10-05-2024">10-05-2024</option>
+         <option value="11-05-2024">11-05-2024</option>
+         <option value="11-06-2024">11-06-2024</option>
+         <option value="12-05-2025">12-05-2025</option>
+         <option value="12-06-2024">12-06-2024</option>
+         <option value="13-05-2024">13-05-2024</option>
+         <option value="13-06-2024">13-06-2024</option>
+         <option value="14-05-2024">14-05-2024</option>
+         <option value="15-05-2024">15-05-2024</option>
+         <option value="16-05-2024">16-05-2024</option>
+         <option value="17-05-2024">17-05-2024</option>
+         </Form.Select>
+        </Form.Group>
+       </>
+      )}
+       <br />
 
        {/* Sharechat Section */}
        {coomunityoption === "Sharechat" && (
-        <>
-         <Form.Group className="mb-3">
-          <Form.Label>K-Value</Form.Label>
-          <Form.Select onChange={(e) => setKValue(parseInt(e.target.value))}>
-           <option value="">Select K</option>
-           {[1000, 5000, 10000, 20000].map((val) => (
-            <option key={val} value={val}>{val}</option>
-           ))}
-          </Form.Select>
-         </Form.Group>
+      <>
+       <Form.Group className="mb-3">
+        <Form.Label>K-Value</Form.Label>
+        <Form.Select onChange={(e) => setKValue(parseInt(e.target.value))}>
+         <option value="">Select K</option>
+         {[1000, 5000, 10000, 20000].map((val) => (
+        <option key={val} value={val}>{val}</option>
+         ))}
+        </Form.Select>
+       </Form.Group>
 
-         <Form.Group className="mb-3">
-          <Form.Label>Random Seed</Form.Label>
-          <Form.Select onChange={(e) => setRandomSeed(parseInt(e.target.value))}>
-           <option value="">Select Seed</option>
-           {[123456, 246912, 740736, 2962944, 14814720, 88888320, 622218240, 4977745920, 44799713280, 447997132800].map((val) => (
-            <option key={val} value={val}>{val}</option>
-           ))}
-          </Form.Select>
-         </Form.Group>
+       <Form.Group className="mb-3">
+        <Form.Label>Random Seed</Form.Label>
+        <Form.Select onChange={(e) => setRandomSeed(parseInt(e.target.value))}>
+         <option value="">Select Seed</option>
+         {[123456, 246912, 740736, 2962944, 14814720, 88888320, 622218240, 4977745920, 44799713280, 447997132800].map((val) => (
+        <option key={val} value={val}>{val}</option>
+         ))}
+        </Form.Select>
+       </Form.Group>
 
-         <Form.Group className="mb-3">
-          <Form.Label>Sampling Strategy</Form.Label>
-          <Form.Select onChange={(e) => setSamplingStrategy(e.target.value)}>
-           <option value="">Select Strategy</option>
-           {["grab", "snowball1 "].map((val) => (
-            <option key={val} value={val}>{val}</option>
-           ))}
-          </Form.Select>
-         </Form.Group>
+       <Form.Group className="mb-3">
+        <Form.Label>Sampling Strategy</Form.Label>
+        <Form.Select onChange={(e) => setSamplingStrategy(e.target.value)}>
+         <option value="">Select Strategy</option>
+         {["grab", "snowball"].map((val) => (
+        <option key={val} value={val}>{val}</option>
+         ))}
+        </Form.Select>
+       </Form.Group>
+      </>
+       )}
 
-         {/* Removed imageUrls display from here */}
-        </>
+       {/* Show image for sampling strategy */}
+       {coomunityoption === "Sharechat" && samplingStrategy === "snowball" && (
+      <div style={{ marginBottom: '16px', textAlign: 'center' }}>
+       <img
+        src="/img/snowball.jpg"
+        alt="Snowball Sampling"
+        style={{ maxWidth: '100%', height: '200px', objectFit: 'contain', border: '1px solid #ccc', borderRadius: '8px' }}
+       />
+       <div style={{ fontSize: '14px', color: '#555' }}>Snowball Sampling</div>
+      </div>
+       )}
+       {coomunityoption === "Sharechat" && samplingStrategy === "grab" && (
+      <div style={{ marginBottom: '16px', textAlign: 'center' }}>
+       <img
+        src={`http://localhost:3500/static/grab.gif`}
+        alt="Grab Sampling"
+        style={{ maxWidth: '100%', height: '200px', objectFit: 'contain', border: '1px solid #ccc', borderRadius: '8px' }}
+       />
+       <div style={{ fontSize: '14px', color: '#555' }}>Grab Sampling</div>
+      </div>
        )}
 
        <div className="d-flex gap-2">
-        <Button variant="primary" onClick={handleSubmit}>Submit</Button>
+      <Button variant="primary" onClick={handleSubmit}>Submit</Button>
 
-        {/* Download Button moved next to Submit button */}
-        {imageUrls.length > 0 && (
-         <Button
-          variant="success"
-          onClick={() => downloadImages(imageUrls)}
-         >Download Graphs</Button>
-        )}
+      {imageUrls.length > 0 && (
+       <Button
+        variant="success"
+        onClick={() => downloadImages(imageUrls)}
+       >Download Graphs</Button>
+      )}
        </div>
-
-       {/* Display images after submission - removed from here */}
       </Col>
 
       <Col>
        <Container>
-        <Row className="justify-content-center">
-         <h4 className="text-center mb-4">Sample Graph</h4>
-        </Row>
-        <Row style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-         <Figure.Image
-          style={{ width: '150%', maxWidth: '100%', height: '300px', objectFit: 'contain' }}
-          alt="Banner Image"
-          src={url + "static/CommunityDetection.png"}
-         />
-        </Row>
+      <Row className="justify-content-center">
+       <h4 className="text-center mb-4">Sample Graph</h4>
+      </Row>
+      <Row style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+       <Figure.Image
+        style={{ width: '150%', maxWidth: '100%', height: '300px', objectFit: 'contain' }}
+        alt="Banner Image"
+        src={url + "static/CommunityDetection.png"}
+       />
+      </Row>
        </Container>
       </Col>
      </Row>
@@ -1630,7 +1652,7 @@ export default function Home() {
      <Row>
       <Col>
        <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
-        <div id="network-graph-container"></div>
+      <div id="network-graph-container"></div>
        </div>
       </Col>
      </Row>
@@ -1639,19 +1661,19 @@ export default function Home() {
       <Row className="mt-4">
        <h4 className="text-center mb-3">Generated Graphs</h4>
        {imageUrls.slice(0, 2).map((src, idx) => (
-        <Col key={idx} xs={12} md={6} className="mb-4">
-         <Figure className="text-center">
-          <MagnifierImage
-  src={src}
-  alt={`Graph ${idx + 1}`}
-  style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
-  magnifierHeight={150}
-  magnifierWidth={150}
-  zoom={2}
-/>
-          <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
-         </Figure>
-        </Col>
+      <Col key={idx} xs={12} md={6} className="mb-4">
+       <Figure className="text-center">
+        <MagnifierImage
+    src={src}
+    alt={`Graph ${idx + 1}`}
+    style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+    magnifierHeight={150}
+    magnifierWidth={150}
+    zoom={2}
+  />
+        <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
+       </Figure>
+      </Col>
        ))}
       </Row>
      )}
@@ -1660,51 +1682,51 @@ export default function Home() {
       <Row className="mt-4">
        <h4 className="text-center mb-3">Generated Graphs</h4>
        {imageUrls.slice(0, 1).map((src, idx) => (
-        <Col key={idx} xs={12} md={6} className="mb-4">
-         <Figure className="text-center">
-          <MagnifierImage
-  src={src}
-  alt={`Graph ${idx + 1}`}
-  style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
-  magnifierHeight={150}
-  magnifierWidth={150}
-  zoom={2}
-/>
-          <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
-         </Figure>
-        </Col>
+      <Col key={idx} xs={12} md={6} className="mb-4">
+       <Figure className="text-center">
+        <MagnifierImage
+    src={src}
+    alt={`Graph ${idx + 1}`}
+    style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+    magnifierHeight={150}
+    magnifierWidth={150}
+    zoom={2}
+  />
+        <Figure.Caption className="mt-2 fs-5">Graph {idx + 1}</Figure.Caption>
+       </Figure>
+      </Col>
        ))}
       </Row>
      )}
      
     </Container>
-   </Tab>
+     </Tab>
 
 
 
 
-   <Tab eventKey="Poltical Ads" title="Poltical Ads">
+     <Tab eventKey="Poltical Ads" title="Poltical Ads">
 
     <Container>
      <Row>
       <Col >
        <Row className="justify-content-center">
-        <h4 className="text-center mb-4"><br></br><br></br><br></br><br></br><br></br>Poltical Ads</h4>
+      <h4 className="text-center mb-4"><br></br><br></br><br></br><br></br><br></br>Poltical Ads</h4>
        </Row>
 
 
        {/* <Form onSubmit={(e)=>polticalads(e)}>
-            <Form.Group className="mb-3" controlId="Ads.text">
-              <Form.Label>Enter Poltical Party Name </Form.Label>
-              <Form.Control as="textarea" rows={1} onChange={(e)=>{setAds(e.target.value)}} />
-              </Form.Group>
+        <Form.Group className="mb-3" controlId="Ads.text">
+          <Form.Label>Enter Poltical Party Name </Form.Label>
+          <Form.Control as="textarea" rows={1} onChange={(e)=>{setAds(e.target.value)}} />
+          </Form.Group>
 
-             <Button variant="primary" type='submit'>
-              Submit
-              </Button>
+         <Button variant="primary" type='submit'>
+          Submit
+          </Button>
 
 
-            </Form> */}
+        </Form> */}
        {/* <iframe
         src={url+"grapdads/table.html"}
         title="Plotly Plot"

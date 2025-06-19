@@ -90,8 +90,8 @@
         - in the 2nd graph, each party should have its total voteshare difference displayed
 
 - ✅ double y axis legend in toxic meme graphs
-    - check if the values add up
-    - swap colors in the graph
+    - ✅ check if the values add up
+    - ✅ swap colors in the graph
 
 - readme
     - how to install dashboard from scratch
@@ -104,6 +104,8 @@
         "ask them the way to install the necessary libraries"
         once everything is setup, place your inference function at line number xyz of our dashboard code
 
-- backend folder pruning- remove the big files which are not our responsibility - we will ask users to contact authors
+- ✅ backend folder pruning- remove the big files which are not our responsibility - we will ask users to contact authors
 
 - after the final git push, and readme file being finished, ritwik will take the screenshots from the report while truying 
+
+- snowball gif

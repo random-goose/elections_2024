@@ -166,11 +166,7 @@ const ClassificationReportBarplotMemes = () => {
       type: 'bar',
       name: 'Safe Count',
       marker: {
-        color: 'rgba(255, 45, 45, 0.77)',
-        line: {
-          color: 'rgba(255, 99, 132, 1.0)',
-          width: 1,
-        },
+        color: 'rgba(54, 162, 235, 0.7)'
       },
       // Removed yaxis: 'y1'
       hovertemplate: '<b>%{x}</b><br>Negative: %{y}<extra></extra>',
@@ -181,11 +177,7 @@ const ClassificationReportBarplotMemes = () => {
       type: 'bar',
       name: 'Toxic Count',
       marker: {
-        color: 'rgba(54, 162, 235, 0.7)',
-        line: {
-          color: 'rgba(54, 162, 235, 1.0)',
-          width: 1,
-        },
+        color: 'rgba(255, 45, 45, 0.77)'
       },
       // Removed yaxis: 'y2'
       hovertemplate: '<b>%{x}</b><br>Toxic: %{y}<extra></extra>',
