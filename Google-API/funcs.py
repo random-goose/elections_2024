@@ -342,19 +342,26 @@ def plot_gender_age_party(df, start_date, end_date, age_groups, genders, numeric
 
 #####################graph 5
 def plot_party_spending_by_demographics(df, start_date, end_date, age_groups, genders, numerical_columns, states, top_n_parties=10):
+    # Load vote difference data
+    vote_diff_df = pd.read_csv('vote_difference_cleaned.csv')
+    
+    # Compute total vote difference per party per state
+    party_vote_diff = vote_diff_df.groupby(['State', 'Party'])['Vote_Difference'].sum().reset_index()
+    
+    # Filter ads by date range
     df = filter_ads_by_date_range(df, start_date, end_date)
-
+    
     # Filter by states if specified
     if states:
         df = df[df['geo_targeting_included'].apply(lambda x: any(state in x.split(', ') for state in states))]
-
+    
     # Prepare accumulation dict
     if isinstance(numerical_columns, list):
         party_sums = {col: {} for col in numerical_columns}
     else:
         numerical_columns = [numerical_columns]
         party_sums = {numerical_columns[0]: {}}
-
+    
     for _, row in df.iterrows():
         party = row['party']
         include_ad = False
@@ -365,8 +372,8 @@ def plot_party_spending_by_demographics(df, start_date, end_date, age_groups, ge
             # Check if demographics exist and if any match filters
             if demographic_data and isinstance(demographic_data, list):
                 include_ad = any(
-                    isinstance(demo, dict) and 
-                    demo.get('age') in age_groups and 
+                    isinstance(demo, dict) and
+                    demo.get('age') in age_groups and
                     demo.get('gender') in genders
                     for demo in demographic_data
                 )
@@ -376,7 +383,7 @@ def plot_party_spending_by_demographics(df, start_date, end_date, age_groups, ge
         except (ValueError, SyntaxError, TypeError):
             # Malformed or missing demographics — include ad anyway
             include_ad = True
-
+        
         if include_ad:
             for col in numerical_columns:
                 amount = row[col]
@@ -384,24 +391,71 @@ def plot_party_spending_by_demographics(df, start_date, end_date, age_groups, ge
                     party_sums[col][party] += amount
                 else:
                     party_sums[col][party] = amount
-
+    
     # Build dataframe and aggregate
     compiled_df = pd.DataFrame([
         {'party': party, 'Spend Type': col, 'sum_amount': party_sums[col][party]}
         for col in party_sums
         for party in party_sums[col]
     ])
-
+    
+    # Aggregate spending by party (sum across all spend types)
     compiled_df = compiled_df.groupby('party', as_index=False)['sum_amount'].sum()
     compiled_df = compiled_df.sort_values(by='sum_amount', ascending=False).head(top_n_parties)
-
+    
+    # Calculate vote difference percentages for each party
+    selected_states = states if states else vote_diff_df['State'].unique()
+    
+    # Filter vote difference data for selected states
+    filtered_vote_diff = party_vote_diff[party_vote_diff['State'].isin(selected_states)]
+    
+    # Calculate total vote difference by party for selected states
+    party_vote_totals = filtered_vote_diff.groupby('Party')['Vote_Difference'].sum().to_dict()
+    
+    # Calculate total absolute vote difference for percentage calculation
+    total_abs_vote_diff = sum(abs(vote) for vote in party_vote_totals.values())
+    
+    # Add vote difference percentage to compiled_df (preserving sign)
+    compiled_df['vote_diff_percent'] = compiled_df['party'].apply(
+        lambda party: (party_vote_totals.get(party, 0) / total_abs_vote_diff * 100) if total_abs_vote_diff > 0 else 0
+    )
+    
+    # Add raw vote difference values for display
+    compiled_df['vote_diff_raw'] = compiled_df['party'].apply(
+        lambda party: party_vote_totals.get(party, 0)
+    )
+    
+    # Create custom x-axis labels with vote difference percentages (preserving sign)
+    x_labels = []
+    for party, row in zip(compiled_df['party'], compiled_df.to_dict('records')):
+        vote_diff_pct = row['vote_diff_percent']
+        vote_diff_raw = row['vote_diff_raw']
+        
+        # Format the percentage with proper sign
+        if vote_diff_pct > 0:
+            pct_str = f"+{vote_diff_pct:.1f}%"
+        elif vote_diff_pct < 0:
+            pct_str = f"{vote_diff_pct:.1f}%"  # negative sign already included
+        else:
+            pct_str = "0.0%"
+        
+        x_labels.append(f"{party}<br>({pct_str} vote diff)")
+    
+    
     # Plot
     fig = px.bar(compiled_df, x='party', y='sum_amount', color='party',
                  title=f'Top {top_n_parties} Parties by Spending for Selected States and Demographics',
                  labels={'party': 'Party', 'sum_amount': 'Total Spend'},
                  color_discrete_sequence=px.colors.qualitative.Plotly,
                  category_orders={'party': compiled_df['party'].tolist()})
-
+    
+    # Update x-axis labels to include vote difference percentages
+    fig.update_xaxes(
+        tickmode='array',
+        tickvals=list(range(len(compiled_df))),
+        ticktext=x_labels
+    )
+    
     # fig.write_html("top_parties_spending.html")
     return fig
 
@@ -808,6 +862,7 @@ def plot_party_sums_by_age_gender(df, start_date, end_date, ages, genders, numer
 
 import ast
 import json
+import pandas as pd
 # -------------------------------------------------------------------------------------------------------------------------------
 def plot_age_gender_party(df, start_date, end_date, parties, gender, numerical_columns):
     # Filter ads by date range

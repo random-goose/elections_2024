@@ -243,7 +243,7 @@ questions are encouraged.  Users are also encouraged to subscribe, and
 view the archives, at https://lists.gnu.org/mailman/listinfo/nmh-workers
 This message will not be repeated until nmh is next updated.
 ========================================================================
-Press enter to continue: no
+Press enter to continue:
 next: usage: next [+folder] [switches] [switches for showproc]
 ```
 when you pass the command `npm run dev`, try running `npx next dev`, and then `npm run dev` again. (this is prone to happen the first time you boot up the dashboard)

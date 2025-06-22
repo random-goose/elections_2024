@@ -1,4 +1,3 @@
-# Done
 - No Data Found - gif ✅
 
 - Clear readme file instructions w/ get request specify the limitation ✅
@@ -7,7 +6,6 @@
 
 - Push - Try merging the branches if easy, or create a new repo ✅
 
-# Bugs
 - ✅ two flask files - both have neccessary things? - same port
     merge
 
@@ -17,18 +15,15 @@
 - ✅ for the framing viz - put the expected data format in the readme - request not getting sent
 
 
-# PRIORITY
-- community graphs
-    quora
-        ask akshit where is the code to generate graphml files for each date (100_1, 100_2, etc)
-    sharechat
-        where is the data?
-        remember that the sharechat data should have same keywords as that of quora
+- ✅ community graphs
+    ✅ quora
+        ✅ ask akshit where is the code to generate graphml files for each date (100_1, 100_2, etc)
+    ✅ sharechat
+        ✅ where is the data?
+        ✅ remember that the sharechat data should have same keywords as that of quora
 
-- Inference
-    - Ramanjunam Server 
-
-# Pending
+- ✅ Inference
+    - ✅ Ramanjunam Server 
 
 - ✅  Toxic Memes - updated architecture diagram from Rahul's new submission
 
@@ -64,8 +59,6 @@
     because older model was about game, attack, misc frame
     we later changed it to attack and misc frames
 
-## 27th
-
 - ✅ sort the states in framing drop down
 
 - ✅ inference submit button popup - that has instructions to run inference
@@ -86,26 +79,24 @@
     - ✅ fix bugs in political ads visualization data
     - ✅ make sure two different graphs give identical numbers in cross checking
     - ✅ some discrepancies in google data
-        - remove the rows without the demographic data and check.
-        - in the 2nd graph, each party should have its total voteshare difference displayed
+        - 🏳️  remove the rows without the demographic data and check.
+        - 🏳️ in the 2nd graph, each party should have its total voteshare difference displayed
 
 - ✅ double y axis legend in toxic meme graphs
     - ✅ check if the values add up 
     - ✅ swap colors in the graph
 
 - readme
-    - how to install dashboard from scratch
+    - ✅ how to install dashboard from scratch
     - which files are need to be downloaded from drive // dont need this anymore
     - where to place them // also this
-    - how to run the dashboard
-    - if needed prepare a separate readme file for inference functions
-    - that readme file will have instructions
+    - ✅ how to run the dashboard
+    - ✅ if needed prepare a separate readme file for inference functions
+    - ✅ that readme file will have instructions
         "contact these authors for inference scripts"
         "ask them the way to install the necessary libraries"
         once everything is setup, place your inference function at line number xyz of our dashboard code
 
 - ✅ backend folder pruning- remove the big files which are not our responsibility - we will ask users to contact authors
 
-- after the final git push, and readme file being finished, ritwik will take the screenshots from the report while truying 
-
-- snowball gif
+- 🏳️ after the final git push, and readme file being finished, ritwik will take the screenshots from the report while truying

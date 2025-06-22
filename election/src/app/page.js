@@ -1389,7 +1389,7 @@ export default function Home() {
       {fakenesres.length > 0 &&
        <div style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '5px', width: '100%' }}>
 
-        <p>Please read the readme.md file to get instructions on how to use inference scripts.</p>
+        <p>Please read the inference.md file to get instructions on how to use inference scripts.</p>
         {/* <p><strong>Explanation is:</strong> {memsres}</p> */}
        </div>
       }
@@ -1456,7 +1456,7 @@ export default function Home() {
       {framingres.length > 0 &&
        <div style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '5px', width: '100%' }}>
 
-        <p>Please read the readme.md file to get instructions on how to use inference scripts.</p>
+        <p>Please read the inference.md file to get instructions on how to use inference scripts.</p>
         {/* <p><strong>Explanation is:</strong> {memsres}</p> */}
        </div>
       }</Col>
@@ -1860,8 +1860,8 @@ export default function Home() {
                     src={url + "toxic/" + toxicpath}
                   />
                   <br /> */}
-         <p>Meme is: <strong>{memsres}</strong></p>
-         {/* <p><strong>Explanation :</strong> {memsres} as it doesnot contain any abusive words</p> */}
+         <p>Please read the inference.md file to get instructions on how to use inference scripts.</p>
+         {/* <p>Please read the inference.md file to get instructions on how to use inference scripts.</p> */}
         </div>
        }
       </Col>
