@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 global df
-df = pd.read_csv("./model_predictions.csv")
+df = pd.read_csv("./model_predictions_cleaned.csv")
 print("DataFrame columns:", df.columns.tolist())
 print("DataFrame shape:", df.shape)
 print("First few rows:")

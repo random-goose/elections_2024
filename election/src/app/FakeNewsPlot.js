@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Plot from 'react-plotly.js';
+import dynamic from 'next/dynamic';
 import Papa from 'papaparse';
+
+// Dynamically import Plot with no SSR
+const Plot = dynamic(() => import('react-plotly.js'), { 
+  ssr: false,
+  loading: () => <div className="text-center">Loading chart...</div>
+});
 
 const ClassificationReportBarplot = () => {
     const [data, setData] = useState([]);
@@ -9,6 +15,12 @@ const ClassificationReportBarplot = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isClient, setIsClient] = useState(false);
+
+    // Client-side check
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     // Fetch and parse CSV data
     useEffect(() => {
@@ -56,8 +68,10 @@ const ClassificationReportBarplot = () => {
             }
         };
 
-        fetchData();
-    }, []);
+        if (isClient) {
+            fetchData();
+        }
+    }, [isClient]);
 
     // Filter data based on selected date range
     useEffect(() => {
@@ -105,6 +119,15 @@ const ClassificationReportBarplot = () => {
     };
 
     const { subreddits, counts } = calculateSubredditCounts(filteredData);
+
+    // Don't render anything on the server
+    if (!isClient) {
+        return (
+            <div className="p-6 max-w-6xl mx-auto">
+                <div className="text-center">Loading...</div>
+            </div>
+        );
+    }
 
     // Show loading state
     if (loading) {
@@ -158,9 +181,6 @@ const ClassificationReportBarplot = () => {
                 </button>
             </div>
 
-
-
-
             <div className="bg-white rounded-lg shadow-lg p-4 m-4">
                 {subreddits.length > 0 ? (
                     <Plot
@@ -202,7 +222,6 @@ const ClassificationReportBarplot = () => {
                         useResizeHandler={true}
                         style={{ width: '100%', height: '100%' }}
                     />
-
                 ) : (
                     <div className="text-center py-8 text-gray-500">
                         No data to display for the selected date range

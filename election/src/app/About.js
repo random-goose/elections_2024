@@ -3,7 +3,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { LinkedinIcon, XIcon } from 'react-share';
 
 const dummyUrl = "https://example.com";
-let profilel="http://localhost:3500/Profilep/"
+
 function InstagramIcon({ size, style }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} fill="#dc3545" viewBox="0 0 16 16" style={style}>
@@ -12,8 +12,7 @@ function InstagramIcon({ size, style }) {
   );
 }
 
-function UserDetailsCard({ userName, details, links,photo }) {
-
+function UserDetailsCard({ userName, details, links, photo }) {
   const renderUserName = () => {
     return <div>{userName}</div>;
   };
@@ -35,7 +34,7 @@ function UserDetailsCard({ userName, details, links,photo }) {
   };
 
   return (
-    <Card style={{ width: '450px',  padding: '2px',border: 'none', margin: '0px' }}>
+    <Card style={{ width: '450px', padding: '2px', border: 'none', margin: '0px' }}>
       <div className="d-flex">
         <div className="p-2">
           <img
@@ -61,18 +60,16 @@ function UserDetailsCard({ userName, details, links,photo }) {
   );
 }
 
-function generateUserDetailsCard(userName, details, links,photo) {
+function generateUserDetailsCard(userName, details, links, photo, key) {
   return (
-    <Col xs={12} sm={6} md={4} lg={4} className="mb-3">
-      <UserDetailsCard userName={userName} details={details} links={links}  photo={photo}/>
+    <Col xs={12} sm={6} md={4} lg={4} className="mb-3" key={key}>
+      <UserDetailsCard userName={userName} details={details} links={links} photo={photo} />
     </Col>
   );
 }
 
 export default function About() {
-
   const Community_dect = [
-   
     {
       userName: "Akshit Sinha",
       details: [],
@@ -81,58 +78,52 @@ export default function About() {
         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
       ],
-      photo:"http://localhost:3500/Profilep/"+"akshit.jpg"
-    },  {
+      photo: "http://localhost:3500/Profilep/" + "akshit.jpg"
+    },
+    {
       userName: "Deeptansh Sharma",
       details: [],
-      links: [
-
-      ],
-      photo:"http://localhost:3500/Profilep/"+"Deeptansh_Sharma.png"
+      links: [],
+      photo: "http://localhost:3500/Profilep/" + "Deeptansh_Sharma.png"
     },
-   
   ];
- 
+
   const FakeNews = [
-   
     {
       userName: "Siddharth Mavani",
       details: [],
       links: [
         { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
-       
       ],
-      photo:"http://localhost:3500/Profilep/"+"mavani.jpg"
-    },  {
+      photo: "http://localhost:3500/Profilep/" + "mavani.jpg"
+    },
+    {
       userName: "Arnav Negi",
       details: [],
       links: [
         { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
-       
       ],
-      photo:"http://localhost:3500/Profilep/"+"arnav.jpeg"
+      photo: "http://localhost:3500/Profilep/" + "arnav.jpeg"
     },
-   
   ];
+
   const Dashboard = [
-   
     {
       userName: "Ritwik Mishra",
-      details: ["Student of IIIT Delhi","Co-Advised with Prof. Rajiv","Ratn Shah"],
-      links: [       ],
-      photo:"http://localhost:3500/Profilep/"+"ritwikm.jpg"
+      details: ["Student of IIIT Delhi", "Co-Advised with Prof. Rajiv", "Ratn Shah"],
+      links: [],
+      photo: "http://localhost:3500/Profilep/" + "ritwikm.jpg"
     },
     {
       userName: "Ruthwik Alamuru",
       details: [],
       links: [
-        { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
-        { url: dummyUrl, icon: <XIcon size={16} round={true} /> },
-        
+        { url: 'https://www.linkedin.com/in/ruthwik-alamuru-bb460a1a4/', icon: <LinkedinIcon size={16} round={true} /> },
+        { url: 'https://bsky.app/profile/random-goose.bsky.social', icon: <XIcon size={16} round={true} /> },
       ],
-      photo:"http://localhost:3500/Profilep/"+"placeholder.jpg"
-    },  
+      photo: "http://localhost:3500/Profilep/" + "placeholder.jpg"
+    },
     {
       userName: "Bhupathi Reddy Budupu",
       details: [],
@@ -140,10 +131,10 @@ export default function About() {
         { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <XIcon size={16} round={true} /> },
-        
       ],
-      photo:"http://localhost:3500/Profilep/"+"Bhupathi.jpg"
-    },{
+      photo: "http://localhost:3500/Profilep/" + "Bhupathi.jpg"
+    },
+    {
       userName: "C Gaurav Sushant",
       details: [],
       links: [
@@ -151,20 +142,17 @@ export default function About() {
         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
       ],
-      photo:"http://localhost:3500/Profilep/"+"Sushant.jpg"
+      photo: "http://localhost:3500/Profilep/" + "Sushant.jpg"
     },
-   
   ];
 
   const FramingTeam = [
-   
     {
       userName: "Tejasvi Chebrolu",
       details: [],
-      links: [       ],
-      photo:"http://localhost:3500/Profilep/"+"tejasvi.jpg"
-
-    },  
+      links: [],
+      photo: "http://localhost:3500/Profilep/" + "tejasvi.jpg"
+    },
     {
       userName: "N Harsha Vardhan",
       details: [],
@@ -173,8 +161,9 @@ export default function About() {
         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
       ],
-      photo:"http://localhost:3500/Profilep/"+"harsha_v.jpeg"
-    },{
+      photo: "http://localhost:3500/Profilep/" + "harsha_v.jpeg"
+    },
+    {
       userName: "Rohan Chowdary Modepalle",
       details: [],
       links: [
@@ -182,36 +171,33 @@ export default function About() {
         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
       ],
-      photo:"http://localhost:3500/Profilep/"+"rohan_c.jpeg"
+      photo: "http://localhost:3500/Profilep/" + "rohan_c.jpeg"
     },
-   
   ];
+
   const Political_ads = [
-   
     {
-       userName: "N Harsha Vardhan",
-       details: [],
-       links: [
-         { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
-         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
-         { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
-       ],
-       photo:"http://localhost:3500/Profilep/"+"harsha_v.jpeg"
-     }, {
-       userName: "Bollimuntha Shreya",
-       details: [],
-       links: [
-         { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
-         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
-        
-       ],
-       photo:"http://localhost:3500/Profilep/"+"placeholder.jpg" 
-     },
-    
-   ];
-  //incomplete
+      userName: "N Harsha Vardhan",
+      details: [],
+      links: [
+        { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
+        { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
+        { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
+      ],
+      photo: "http://localhost:3500/Profilep/" + "harsha_v.jpeg"
+    },
+    {
+      userName: "Bollimuntha Shreya",
+      details: [],
+      links: [
+        { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
+        { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
+      ],
+      photo: "http://localhost:3500/Profilep/" + "placeholder.jpg"
+    },
+  ];
+
   const coreTeamData = [
-   
     {
       userName: 'Ponnurangam Kumaraguru "PK"',
       details: [],
@@ -220,55 +206,34 @@ export default function About() {
         { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
         { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
       ],
-      photo:"http://localhost:3500/Profilep/"+"pk.jpg"
+      photo: "http://localhost:3500/Profilep/" + "pk.jpg"
     },
-      // {
-    //   userName: "Rohan Chowdary Modepalle",
-    //   details: ["Welcome to my", "Youtube channel"],
-    //   links: [
-    //     { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
-    //     { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
-    //     { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
-    //   ]
-    // },
-
   ];
- 
 
   const Toxic_memes = [
-   
     {
       userName: "Khush Patel",
       details: [],
-      links: [
-        // { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
-        // { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
-        // { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
-      ],
-      photo:"http://localhost:3500/Profilep/"+"Khush_Patel.png"
-    },  {
+      links: [],
+      photo: "http://localhost:3500/Profilep/" + "Khush_Patel.png"
+    },
+    {
       userName: "Rahul Garg",
       details: [],
-      links: [
-        // { url: dummyUrl, icon: <LinkedinIcon size={16} round={true} /> },
-        // { url: dummyUrl, icon: <InstagramIcon size={16} round={true} /> },
-        // { url: dummyUrl, icon: <XIcon size={16} round={true} /> }
-      ],
-      photo:"http://localhost:3500/Profilep/"+"Rahul_Garg.png"
+      links: [],
+      photo: "http://localhost:3500/Profilep/" + "Rahul_Garg.png"
     },
-   
   ];
-
-
 
   const generateRows = (data) => {
     const rows = [];
     let rowItems = [];
 
     data.forEach((member, index) => {
-      rowItems.push(generateUserDetailsCard(member.userName, member.details, member.links,member.photo));
+      // Use a unique key, e.g., userName + index (in case of duplicate names)
+      rowItems.push(generateUserDetailsCard(member.userName, member.details, member.links, member.photo, `${member.userName}-${index}`));
 
-      // If the row is filled with 3 items or it's the last item in data, push the row
+      // If the row is filled with 2 items or it's the last item in data, push the row
       if (rowItems.length === 2 || index === data.length - 1) {
         rows.push(<Row key={index} className="justify-content-center">{rowItems}</Row>);
         rowItems = []; // Reset row items
@@ -280,46 +245,54 @@ export default function About() {
 
   return (
     <Container>
-     
-    
-     <Row className="justify-content-center">
+      <Row className="justify-content-center">
         <h4 className="text-center mb-4">Team Lead</h4>
       </Row>
-    <Row>
-      {generateRows(coreTeamData)}</Row>
+      <Row>
+        {generateRows(coreTeamData)}
+      </Row>
+      
       <Row className="justify-content-center">
         <h4 className="text-center mb-4">Dashboard</h4>
       </Row>
-    <Row>
-      {generateRows(Dashboard)}</Row>
+      <Row>
+        {generateRows(Dashboard)}
+      </Row>
+      
       <Row className="justify-content-center">
         <h4 className="text-center mb-4">Community Detection</h4>
       </Row>
-    <Row>
-      {generateRows(Community_dect)}</Row>
+      <Row>
+        {generateRows(Community_dect)}
+      </Row>
+      
       <Row className="justify-content-center">
         <h4 className="text-center mb-4">Toxic Memes</h4>
       </Row>
-    <Row>
-      {generateRows(Toxic_memes)}</Row>
+      <Row>
+        {generateRows(Toxic_memes)}
+      </Row>
 
       <Row className="justify-content-center">
-        <h4 className="text-center mb-4">Poltical Ads</h4>
+        <h4 className="text-center mb-4">Political Ads</h4>
       </Row>
-    <Row>
-      {generateRows(Political_ads)}</Row>
+      <Row>
+        {generateRows(Political_ads)}
+      </Row>
+      
       <Row className="justify-content-center">
         <h4 className="text-center mb-4">Fake News</h4>
       </Row>
-    <Row>
-      {generateRows(FakeNews)}</Row>
+      <Row>
+        {generateRows(FakeNews)}
+      </Row>
+      
       <Row className="justify-content-center">
         <h4 className="text-center mb-4">Framing</h4>
-      </Row> <Row>
-      {generateRows(FramingTeam)}</Row>
-
-     
-  
+      </Row>
+      <Row>
+        {generateRows(FramingTeam)}
+      </Row>
     </Container>
   );
 }

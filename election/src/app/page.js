@@ -6,6 +6,7 @@ import ClassificationReportBarplot from './FakeNewsPlot'
 import ClassificationReportBarplotMemes from './ToxicMemesPlot'
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Form from 'react-bootstrap/Form';
@@ -1601,7 +1602,7 @@ export default function Home() {
        {coomunityoption === "Sharechat" && samplingStrategy === "snowball" && (
       <div style={{ marginBottom: '16px', textAlign: 'center' }}>
        <img
-        src="/img/snowball.jpg"
+        src={url + "static/snowball.gif"}
         alt="Snowball Sampling"
         style={{ maxWidth: '100%', height: '200px', objectFit: 'contain', border: '1px solid #ccc', borderRadius: '8px' }}
        />
@@ -1611,7 +1612,7 @@ export default function Home() {
        {coomunityoption === "Sharechat" && samplingStrategy === "grab" && (
       <div style={{ marginBottom: '16px', textAlign: 'center' }}>
        <img
-        src={`http://localhost:3500/static/grab.gif`}
+        src={url + "static/grab.gif"}
         alt="Grab Sampling"
         style={{ maxWidth: '100%', height: '200px', objectFit: 'contain', border: '1px solid #ccc', borderRadius: '8px' }}
        />

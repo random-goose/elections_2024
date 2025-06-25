@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Plot from 'react-plotly.js';
+import dynamic from 'next/dynamic';
 import Papa from 'papaparse';
+
+// Dynamically import Plot with no SSR
+const Plot = dynamic(() => import('react-plotly.js'), { 
+  ssr: false,
+  loading: () => <div className="text-center">Loading chart...</div>
+});
 
 const ClassificationReportBarplotMemes = () => {
     const [data, setData] = useState([]);
@@ -9,6 +15,12 @@ const ClassificationReportBarplotMemes = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isClient, setIsClient] = useState(false); // Add missing state variable
+
+    // Client-side check
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     // Fetch and parse CSV data
     useEffect(() => {
@@ -55,8 +67,10 @@ const ClassificationReportBarplotMemes = () => {
             }
         };
 
-        fetchData();
-    }, []);
+        if (isClient) {
+            fetchData();
+        }
+    }, [isClient]);
 
     // Filter data based on selected date range
     useEffect(() => {
@@ -105,6 +119,15 @@ const ClassificationReportBarplotMemes = () => {
     };
 
     const { subreddits, negativeCounts, positiveCounts } = calculateSubredditCounts(filteredData);
+    
+    // Don't render anything on the server
+    if (!isClient) {
+        return (
+            <div className="p-6 max-w-6xl mx-auto">
+                <div className="text-center">Loading...</div>
+            </div>
+        );
+    }
 
     if (loading) {
         return (
@@ -159,60 +182,56 @@ const ClassificationReportBarplotMemes = () => {
             <div className="bg-white rounded-lg shadow-lg p-4 m-4">
                 {subreddits.length > 0 ? (
                     <Plot
-  data={[
-    {
-      x: subreddits,
-      y: negativeCounts,
-      type: 'bar',
-      name: 'Safe Count',
-      marker: {
-        color: 'rgba(54, 162, 235, 0.7)'
-      },
-      // Removed yaxis: 'y1'
-      hovertemplate: '<b>%{x}</b><br>Negative: %{y}<extra></extra>',
-    },
-    {
-      x: subreddits,
-      y: positiveCounts,
-      type: 'bar',
-      name: 'Toxic Count',
-      marker: {
-        color: 'rgba(255, 45, 45, 0.77)'
-      },
-      // Removed yaxis: 'y2'
-      hovertemplate: '<b>%{x}</b><br>Toxic: %{y}<extra></extra>',
-    },
-  ]}
-  layout={{
-    autosize: true,
-    barmode: 'group', // side-by-side bars on the same y-axis
-    title: {
-      text: 'Subreddit Safe/Toxic Meme Counts',
-      font: { size: 20 },
-    },
-    xaxis: {
-      tickangle: -45,
-    },
-    yaxis: {
-      title: 'Count', // single y-axis for both
-      side: 'left',
-      showgrid: true,
-      zeroline: true,
-    },
-    margin: { b: 120 },
-    height: 600,
-    showlegend: true,
-    legend: { orientation: 'h', y: -0.2 },
-  }}
-  config={{
-    displayModeBar: true,
-    displaylogo: false,
-  }}
-  useResizeHandler={true}
-  style={{ width: '100%', height: '100%' }}
-/>
-                    
-
+                        data={[
+                            {
+                                x: subreddits,
+                                y: negativeCounts,
+                                type: 'bar',
+                                name: 'Safe Count',
+                                marker: {
+                                    color: 'rgba(54, 162, 235, 0.7)'
+                                },
+                                hovertemplate: '<b>%{x}</b><br>Negative: %{y}<extra></extra>',
+                            },
+                            {
+                                x: subreddits,
+                                y: positiveCounts,
+                                type: 'bar',
+                                name: 'Toxic Count',
+                                marker: {
+                                    color: 'rgba(255, 45, 45, 0.77)'
+                                },
+                                hovertemplate: '<b>%{x}</b><br>Toxic: %{y}<extra></extra>',
+                            },
+                        ]}
+                        layout={{
+                            autosize: true,
+                            barmode: 'group', // side-by-side bars on the same y-axis
+                            title: {
+                                text: 'Subreddit Safe/Toxic Meme Counts',
+                                font: { size: 20 },
+                            },
+                            xaxis: {
+                                tickangle: -45,
+                            },
+                            yaxis: {
+                                title: 'Count', // single y-axis for both
+                                side: 'left',
+                                showgrid: true,
+                                zeroline: true,
+                            },
+                            margin: { b: 120 },
+                            height: 600,
+                            showlegend: true,
+                            legend: { orientation: 'h', y: -0.2 },
+                        }}
+                        config={{
+                            displayModeBar: true,
+                            displaylogo: false,
+                        }}
+                        useResizeHandler={true}
+                        style={{ width: '100%', height: '100%' }}
+                    />
                 ) : (
                     <div className="text-center py-8 text-gray-500">
                         No data to display for the selected date range
@@ -228,7 +247,7 @@ const ClassificationReportBarplotMemes = () => {
             </div>
 
             <div className="mt-4 text-xs text-gray-400 text-center">
-                {subreddits.length} subreddits found, Total Safe: {negativeCounts.reduce((a, b) => a + b, 0)}, Total T: {positiveCounts.reduce((a, b) => a + b, 0)}
+                {subreddits.length} subreddits found, Total Safe: {negativeCounts.reduce((a, b) => a + b, 0)}, Total Toxic: {positiveCounts.reduce((a, b) => a + b, 0)}
             </div>
         </div>
     );

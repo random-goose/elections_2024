@@ -11,96 +11,98 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 CORS(app)
 
-# # Preprocessing
-# global df
-# df = pd.read_csv('meta_ad_data.csv')
+# Preprocessing
+global df
+df = pd.read_csv('meta_ad_data.csv')
 
-# # Convert delivery time columns to datetime
-# df['ad_delivery_start_time'] = pd.to_datetime(df['ad_delivery_start_time'], errors='coerce')
-# df['ad_delivery_stop_time'] = pd.to_datetime(df['ad_delivery_stop_time'], errors='coerce')
+# Convert delivery time columns to datetime
+df['ad_delivery_start_time'] = pd.to_datetime(df['ad_delivery_start_time'], errors='coerce')
+df['ad_delivery_stop_time'] = pd.to_datetime(df['ad_delivery_stop_time'], errors='coerce')
 
-# # Drop rows with missing delivery times
-# df = df.dropna(subset=['ad_delivery_start_time', 'ad_delivery_stop_time'])
+# Drop rows with missing delivery times
+df = df.dropna(subset=['ad_delivery_start_time', 'ad_delivery_stop_time'])
 
-# # Use raw strings for regex patterns to avoid SyntaxWarnings
-# df[['lower_bound_spend', 'upper_bound_spend']] = df['spend'].str.extract(r'lower_bound: (\d+), upper_bound: (\d+)')
-# df[['lower_bound_impressions', 'upper_bound_impressions']] = df['impressions'].str.extract(r'lower_bound: (\d+), upper_bound: (\d+)')
+# Use raw strings for regex patterns to avoid SyntaxWarnings
+df[['lower_bound_spend', 'upper_bound_spend']] = df['spend'].str.extract(r'lower_bound: (\d+), upper_bound: (\d+)')
+df[['lower_bound_impressions', 'upper_bound_impressions']] = df['impressions'].str.extract(r'lower_bound: (\d+), upper_bound: (\d+)')
 
-# # Fill NaN values with 0
-# df['lower_bound_spend'].fillna(0, inplace=True)
-# df['upper_bound_spend'].fillna(0, inplace=True)
-# df['lower_bound_impressions'].fillna(0, inplace=True)
-# df['upper_bound_impressions'].fillna(0, inplace=True)
+# Fill NaN values with 0
+df['lower_bound_spend'].fillna(0, inplace=True)
+df['upper_bound_spend'].fillna(0, inplace=True)
+df['lower_bound_impressions'].fillna(0, inplace=True)
+df['upper_bound_impressions'].fillna(0, inplace=True)
 
-# # Convert the extracted columns to integers
-# df['lower_bound_spend'] = df['lower_bound_spend'].astype(int)
-# df['upper_bound_spend'] = df['upper_bound_spend'].astype(int)
-# df['lower_bound_impressions'] = df['lower_bound_impressions'].astype(int)
-# df['upper_bound_impressions'] = df['upper_bound_impressions'].astype(int)
+# Convert the extracted columns to integers
+df['lower_bound_spend'] = df['lower_bound_spend'].astype(int)
+df['upper_bound_spend'] = df['upper_bound_spend'].astype(int)
+df['lower_bound_impressions'] = df['lower_bound_impressions'].astype(int)
+df['upper_bound_impressions'] = df['upper_bound_impressions'].astype(int)
 
-# #processing demographic and regions
-# demographics = []
-# regions = []
-# for i in tqdm(range(len(df))):
-#     try:
-#         if pd.notna(df["demographic_distribution"][i]):
-#             strx = "[" + df["demographic_distribution"][i] + "]"
-#             demographics.append(eval(strx))
-#         else:
-#             demographics.append([])
-#     except (KeyError, SyntaxError) as e:
-#         demographics.append([])
-# df["parsed_demographics"] = demographics
-# for i in tqdm(range(len(df))):
-#     try:
-#         if pd.notna(df["delivery_by_region"][i]):
-#             strx = "[" + df["delivery_by_region"][i] + "]"
-#             regions.append(eval(strx))
-#         else:
-#             regions.append([])
-#     except (KeyError, SyntaxError) as e:
-#         regions.append([])
-# df["parsed_region"] = regions
-# #finished eda
-# net=pd.read_csv("parties - parties.csv")
-# netdict={}
-# columns_list = net.columns.tolist()
-# for i in columns_list:
-#   listx=[]
-#   for j in net[i]:
-#     if(j==j):
-#       listx.append(j)
-#   netdict[i]=listx
-# def get_names_direct(row,column1,column2,data_dict=netdict):
-#     if row[column1] != row[column1] and row[column2] != row[column2]:
-#         return []
-#     input_string=str(row[column1])+' '+str(row[column2])
-#     sorted_elements = sorted(
-#         [(key, item) for key, values in data_dict.items() for item in values],
-#         key=lambda x: len(x[1]),
-#         reverse=True
-#     )
-#     matched_elements = []
-#     for key, element in sorted_elements:
-#         if element in input_string:
-#             if key not in matched_elements:  # Ensure the key's 0th element is added only once
-#                 matched_elements.append(data_dict[key][0])
-#             input_string = input_string.replace(element, ' ')
-#     return list(set(matched_elements))
-# tqdm.pandas()
+df.to_csv('meta_ad_data_cleaned.csv', index=False)
 
-# #precomputing the party names
-# df['party'] = df.progress_apply(lambda x: get_names_direct(x, 'page_name', 'ad_creative_bodies'), axis=1)
-# def assign_party(parties):
-#     if len(parties) == 1:
-#         return parties[0]
-#     elif len(parties) > 1:
-#         return None
-#     else:
-#         return None
-# df['party'] = df['party'].apply(assign_party)
+#processing demographic and regions
+demographics = []
+regions = []
+for i in tqdm(range(len(df))):
+    try:
+        if pd.notna(df["demographic_distribution"][i]):
+            strx = "[" + df["demographic_distribution"][i] + "]"
+            demographics.append(eval(strx))
+        else:
+            demographics.append([])
+    except (KeyError, SyntaxError) as e:
+        demographics.append([])
+df["parsed_demographics"] = demographics
+for i in tqdm(range(len(df))):
+    try:
+        if pd.notna(df["delivery_by_region"][i]):
+            strx = "[" + df["delivery_by_region"][i] + "]"
+            regions.append(eval(strx))
+        else:
+            regions.append([])
+    except (KeyError, SyntaxError) as e:
+        regions.append([])
+df["parsed_region"] = regions
+#finished eda
+net=pd.read_csv("parties - parties.csv")
+netdict={}
+columns_list = net.columns.tolist()
+for i in columns_list:
+  listx=[]
+  for j in net[i]:
+    if(j==j):
+      listx.append(j)
+  netdict[i]=listx
+def get_names_direct(row,column1,column2,data_dict=netdict):
+    if row[column1] != row[column1] and row[column2] != row[column2]:
+        return []
+    input_string=str(row[column1])+' '+str(row[column2])
+    sorted_elements = sorted(
+        [(key, item) for key, values in data_dict.items() for item in values],
+        key=lambda x: len(x[1]),
+        reverse=True
+    )
+    matched_elements = []
+    for key, element in sorted_elements:
+        if element in input_string:
+            if key not in matched_elements:  # Ensure the key's 0th element is added only once
+                matched_elements.append(data_dict[key][0])
+            input_string = input_string.replace(element, ' ')
+    return list(set(matched_elements))
+tqdm.pandas()
 
-# print(df.value_counts(subset='party'))
+#precomputing the party names
+df['party'] = df.progress_apply(lambda x: get_names_direct(x, 'page_name', 'ad_creative_bodies'), axis=1)
+def assign_party(parties):
+    if len(parties) == 1:
+        return parties[0]
+    elif len(parties) > 1:
+        return None
+    else:
+        return None
+df['party'] = df['party'].apply(assign_party)
+
+print(df.value_counts(subset='party'))
 
 #http://127.0.0.1:5000/graph1
 #{

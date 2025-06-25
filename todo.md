@@ -99,4 +99,28 @@
 
 - ✅ backend folder pruning- remove the big files which are not our responsibility - we will ask users to contact authors
 
+- ✅ add snowball2 gif
+- add necessary drive links into the read me file
+- restructure readme file - so that any extra information is removed
+
+sharechat visualization and quora visualization 
+user gender predictor code
+framing data dump
+update readme for framing visulization backend code
+fake news checkpoints
+separate installation subsection in readme
+mention only those steps that you executed
+
+- Remove any unneccary including yarn from readme
+
+- add drive links for sharechat graph utils to readme
+
+- remove vote % from google data graphs
+
+- these are the flask servers that needs to be run manually
+    1. google data
+    2. fb data
+    3. framing data
+    4. general all
+
 - 🏳️ after the final git push, and readme file being finished, ritwik will take the screenshots from the report while truying
