@@ -21,7 +21,6 @@ app.use('/comgraphsq', express.static('quora_graphs/pngs'))
 app.use('/comgraphsvgq', express.static('quora_graphs/svgs'))
 app.use('/toxic', express.static('toxic'))
 app.use('/Profilep', express.static('Profile'))
-
 app.use('/grapdads', express.static('Ads'))
 var bodyParser = require('body-parser')
 const FormData = require('form-data');
