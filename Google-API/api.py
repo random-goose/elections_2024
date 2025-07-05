@@ -1,4 +1,4 @@
-from funcs import *
+from functions_g import *
 from flask import Flask, request, jsonify, send_file  # type: ignore
 import pandas as pd #type: ignore
 from flask_cors import CORS #type: ignore

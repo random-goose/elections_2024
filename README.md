@@ -68,15 +68,6 @@ If Python is not installed, visit the [Python download page](https://www.python.
 * In VSCode, open a terminal using <kbd>Ctrl</kbd> + <kbd>\`</kbd> or the bottom panel toggle.
 * Use the `+` button in the terminal panel to open multiple terminals as needed.
 
-#### Flask Backend
-
-Navigate to the Flask backend folder and start the server:
-
-```bash
-cd backend/flask
-python app.py
-```
-
 #### Express.js Backend
 
 Install required packages:
@@ -114,13 +105,6 @@ npm run dev
 #### Starting Servers
 
 Ensure all servers are running:
-
-* **Flask Backend**
-
-  ```bash
-  cd backend/flask
-  python app.py
-  ```
 
 * **Express.js Backend**
 

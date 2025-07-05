@@ -44,7 +44,7 @@ def party_spend_with_dates(df, start_date, end_date, columns):
         showlegend=True
     )
     # fig.show()
-    fig.write_html("party_spend.html")
+    # fig.write_html("party_spend.html")
     return fig
 
 
@@ -383,7 +383,7 @@ def daily_freq(df,start_date,end_date):
     
     
     # fig.show()
-    fig.write_html("daily_freq.html")
+    # fig.write_html("daily_freq.html")
     return fig
 
 # def daily_amount_sum(df, start_date, end_date, columns):
@@ -440,7 +440,7 @@ def daily_amount_sum(df, start_date, end_date, columns):
         fig.add_trace(go.Bar(x=daily_sum['ad_delivery_start_time'], y=daily_sum[columns], name='Sum Amount'))
 
     # fig.show()
-    fig.write_html("daily_sum.html")
+    # fig.write_html("daily_sum.html")
     return fig
 
 
@@ -487,7 +487,7 @@ def plot_lang_by_party_states(df, start_date, end_date, parties, states, numeric
                      labels={'language': 'Language', 'sum_amount': 'Sum Amount'},
                      color='language')
 
-    fig.write_html("lang_by_party_state.html")
+    # fig.write_html("lang_by_party_state.html")
     # fig.show()
     return fig
 
@@ -515,7 +515,7 @@ def plot_party_spending_by_language(df, start_date, end_date, party_names, colum
                      color='languages')
     
     # fig.show()
-    fig.write_html("party_language.html")
+    # fig.write_html("party_language.html")
     return fig
 
 def calculate_statewise_spending(df, column):
@@ -560,7 +560,7 @@ def plot_statewise_spending_by_language(df, start_date, end_date, party_names, l
                      labels={'state': 'State'},
                      color='state')
 
-    fig.write_html("statewise_lang.html")
+    # fig.write_html("statewise_lang.html")
     # fig.show()
     return fig
 
@@ -608,7 +608,7 @@ def plot_partywise_spending_by_state_language(df, start_date, end_date, states, 
                      labels={'party': 'Party'},
                      color='party')
 
-    fig.write_html("partywise_state_lang.html")
+    # fig.write_html("partywise_state_lang.html")
     # fig.show()
     return fig
 
@@ -663,7 +663,7 @@ def plot_age_gender_party(df, start_date, end_date, parties, genders, numerical_
                      labels={'age_group': 'Age Group'},
                      color='age_group')
 
-    fig.write_html("partywise_age_gender.html")
+    # fig.write_html("partywise_age_gender.html")
     # fig.show()
     return fig
 
@@ -719,7 +719,7 @@ def plot_gender_age_party(df, start_date, end_date, parties, ages, numerical_col
                      labels={'gender': 'Gender', 'sum_amount': 'Sum Amount'},
                      color='gender')
 
-    fig.write_html("partywise_gender_age.html")
+    # fig.write_html("partywise_gender_age.html")
     # fig.show()
     return fig
 
@@ -770,6 +770,6 @@ def plot_party_sums_by_age_gender(df, start_date, end_date, ages, genders, numer
                      labels={'party': 'Party', 'sum_amount': 'Sum Amount'},
                      color='party')
 
-    fig.write_html("age_gender_party.html")
+    # fig.write_html("age_gender_party.html")
     # fig.show()
     return fig
