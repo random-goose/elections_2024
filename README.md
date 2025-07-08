@@ -102,6 +102,21 @@ npm install
 npm run dev
 ```
 
+If it runs successfully, you should see output similar to:
+
+```> election@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.2.1-canary.0
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.20:3000
+   - Environments: .env
+
+ ✓ Starting...
+```
+
+You can access the dashboard UI at [http://localhost:3000](http://localhost:3000). But make sure to start the below servers as well.
+
 #### Starting Servers
 
 Ensure all servers are running:
@@ -162,11 +177,15 @@ Then, start all servers as described in the Development Mode section.
 
 Some features are not directly accessible via the dashboard. Use the following resources for extended functionality:
 
-* **Quora Community Graphs**: [Link](https://drive.google.com/file/d/1XME3z-NQaNnurI2xD-sq32MTESkSNP5M/view?usp=sharing)
-* **Sharechat Community Graphs**: [Link](https://drive.google.com/drive/folders/1KG1MV4sjVjtfVC9QcF4FbwXpjKWTxD0m?usp=sharing)
+* **Quora Scraped Data**: [Link](https://drive.google.com/file/d/1XME3z-NQaNnurI2xD-sq32MTESkSNP5M/view?usp=sharing)
+* **Sharechat Scraped Data**: [Link](https://drive.google.com/drive/folders/1KG1MV4sjVjtfVC9QcF4FbwXpjKWTxD0m?usp=sharing)
+* **Sharechat Full Graph**: [Link](https://drive.google.com/file/d/1tNvQ3oHOoUJ4_2zHG44jHN6K2tXFpf7-/view?usp=sharing)
 * **Community Detection Codes**: [Link](https://drive.google.com/drive/folders/1gGEQbm3MrpSum6VmWD8J9ej0_SVniu6h?usp=sharing)
 * **Framing Model**: [Link](https://drive.google.com/drive/folders/1ZEnjlKUqVf4ckPNx9vPY6RGJkrX0BDP1?usp=sharing)
 * **Toxic Memes Model**: [Link](https://drive.google.com/drive/folders/1LbUsGP0SzYCXTMphgiKB_nHl6SZoU5ZO?usp=sharing)
+* **Gender predictor from Indian usernames**: [Link](https://drive.google.com/file/d/1DoXyKoUUKUR-DON6IMBjYFgEajVxX2Ut/view?usp=sharing)
+* **News Headline Dump**: [Link](https://drive.google.com/file/d/1IAyvaetKiYLil3L6-RXs5JZ-rO0h_Iug/view?usp=sharing)
+* **Scraped Reddit Data**: [Link](https://drive.google.com/file/d/1j9P6b7dlgx1yQnllbmwTt8HYwUf4ZIcw/view?usp=sharing)
 
 ## Troubleshooting
 
